@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DF27A1C1-7BFD-44DF-98FD-D3598947F58E}</ProjectGuid>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>CORNDatabaseLayer</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CORNDatabaseLayer</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <SccAuxPath>SAK</SccAuxPath>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CORNCommon, Version=1.0.9462.24201, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CORNCommon\bin\Debug\CORNCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="CORNDataAccessLayer">
+      <HintPath>..\CORNBusinessLayer\bin\Debug\CORNDataAccessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InputClasses\Common\spWhatNew.cs" />
+    <Compile Include="InputClasses\ECommerce\spInsertECommerceCategory.cs" />
+    <Compile Include="InputClasses\ECommerce\spUpdateSizeAndCrustForEcommerceItem.cs" />
+    <Compile Include="InputClasses\ECommerce\spUpdateCafeTimeSchedule.cs" />
+    <Compile Include="InputClasses\ECommerce\spSelectCafeTimeSchedule.cs" />
+    <Compile Include="InputClasses\ECommerce\spInsertCafeTimeSchedule.cs" />
+    <Compile Include="InputClasses\ECommerce\spInsertItemAgainstCategory.cs" />
+    <Compile Include="InputClasses\ECommerce\spSelectECommerce_Category.cs" />
+    <Compile Include="InputClasses\ECommerce\spSelectEcommAssignedUnAssignedItem.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spSELECTFRANCHISE_SALE_INVOICE_DETAIL2.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spSelectFranchiseSaleInvoice_Detail.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spSelectROLLBACK_REASON.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spupdateFranchiseSaleInvoice_Detail.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spUpdateFRANCHISE_SALE_INVOICE_MASTER2.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spupdateFranchiseSaleInvoice_Master.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spSelectFRANCHISE_INVOICE_MASTER.cs" />
+    <Compile Include="InputClasses\spUpdateCustomerAddress.cs" />
+    <Compile Include="InputClasses\uspGetAccountChildren.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertSALE_INVOICE_DETAILKOT.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertSALE_INVOICE_MASTER3.cs" />
+    <Compile Include="InputClasses\OpeningStockExist.cs" />
+    <Compile Include="InputClasses\spGetPeetyExpenseVooucher.cs" />
+    <Compile Include="InputClasses\spInsertSALE_INVOICE_DETAILKOT2.cs" />
+    <Compile Include="InputClasses\uspGetIssuenceVSSales.cs" />
+    <Compile Include="InputClasses\spUpdateInvoice.cs" />
+    <Compile Include="InputClasses\spInsertRefundDetail.cs" />
+    <Compile Include="InputClasses\spInsertSalesRefundMaster.cs" />
+    <Compile Include="InputClasses\spInsertGL_MASTERVoucherNew.cs" />
+    <Compile Include="InputClasses\spInsertPROMOTION_CUSTOMER_TYPE.cs" />
+    <Compile Include="InputClasses\spSelectInvBooking_DETAIL.cs" />
+    <Compile Include="InputClasses\spSelectPROMOTION_CUSTOMER_TYPE.cs" />
+    <Compile Include="InputClasses\spUpdateSALE_INVOICE_DeliveryMan.cs" />
+    <Compile Include="InputClasses\MaleesCafee\uspInsertPayment.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\uspUpdateGRNCompleted.cs" />
+    <Compile Include="InputClasses\SaleForce\uspUSER_SECTION.cs" />
+    <Compile Include="InputClasses\RptTopSellingItems.cs" />
+    <Compile Include="InputClasses\spUpdateSALE_INVOICE_MASTERSplitOrder.cs" />
+    <Compile Include="InputClasses\UspCustomerOpBalanceFranchise.cs" />
+    <Compile Include="InputClasses\uspDeleteSupplierPayment.cs" />
+    <Compile Include="InputClasses\uspGetCategorySales.cs" />
+    <Compile Include="InputClasses\uspDeleteItemInvoiceDetail.cs" />
+    <Compile Include="InputClasses\uspGetSMSSetting.cs" />
+    <Compile Include="InputClasses\uspInActiveInvoices.cs" />
+    <Compile Include="InputClasses\uspDeleteVoucher.cs" />
+    <Compile Include="InputClasses\spSelectCHEQUE_PROCESSReceiveDeposit.cs" />
+    <Compile Include="InputClasses\uspGetAppSettingDetail.cs" />
+    <Compile Include="InputClasses\uspGetAllCUSTOMER.cs" />
+    <Compile Include="InputClasses\uspInsertKOTDetail.cs" />
+    <Compile Include="InputClasses\uspInsertCustomerPoints.cs" />
+    <Compile Include="InputClasses\uspDeletePurchase.cs" />
+    <Compile Include="InputClasses\uspSelectDISTRIBUTOR_USERInfo.cs" />
+    <Compile Include="InputClasses\uspGetLastPurchasePrice.cs" />
+    <Compile Include="InputClasses\uspInsertCustomerInvoiceCalculation.cs" />
+    <Compile Include="InputClasses\uspInsertOpenItem.cs" />
+    <Compile Include="InputClasses\spInsertBARCODE.cs" />
+    <Compile Include="InputClasses\spUpdateSALE_INVOICE_MASTEROnPrintInvoice.cs" />
+    <Compile Include="InputClasses\uspGetDiscountTemplate.cs" />
+    <Compile Include="InputClasses\uspGetSKUInfo.cs" />
+    <Compile Include="InputClasses\uspGetPendingPurchaseInvoices.cs" />
+    <Compile Include="InputClasses\UspSelectUnAssignDistributorActive.cs" />
+    <Compile Include="InputClasses\uspUpdateDiscountTemplate.cs" />
+    <Compile Include="InputClasses\uspInsertDiscountTemplate.cs" />
+    <Compile Include="InputClasses\uspInsertCustomereThirdParty.cs" />
+    <Compile Include="InputClasses\uspGetUpdateSaleDetailPrintQtyWS.cs" />
+    <Compile Include="InputClasses\uspGetAmountDue.cs" />
+    <Compile Include="InputClasses\uspInsertSupplierAdvance.cs" />
+    <Compile Include="InputClasses\uspUpdateTransferOut.cs" />
+    <Compile Include="InputClasses\uspGetBankDiscount.cs" />
+    <Compile Include="InputClasses\uspUpdateBankDiscount.cs" />
+    <Compile Include="InputClasses\uspInsertBankDiscount.cs" />
+    <Compile Include="InputClasses\spSelectBARCODE.cs" />
+    <Compile Include="InputClasses\uspGetCOALocation.cs" />
+    <Compile Include="InputClasses\uspGetGroupDetal.cs" />
+    <Compile Include="InputClasses\spPromotionVoucher.cs" />
+    <Compile Include="InputClasses\spInsertCUSTOMER3.cs" />
+    <Compile Include="InputClasses\spInsertPROMOTION_DAYS.cs" />
+    <Compile Include="InputClasses\spInsertRIMS_INVOICE_MASTER.cs" />
+    <Compile Include="InputClasses\spInsertSKU_GROUP.cs" />
+    <Compile Include="InputClasses\spInsertSKU_GROUP_DETAIL.cs" />
+    <Compile Include="InputClasses\spSelectPROMOTION_DAYS.cs" />
+    <Compile Include="InputClasses\spSelectSKU_GROUP.cs" />
+    <Compile Include="InputClasses\uspGetParentCategry.cs" />
+    <Compile Include="InputClasses\spUpdateRIMS_INVOICE_MASTER.cs" />
+    <Compile Include="InputClasses\uspGetCustomerGroup.cs" />
+    <Compile Include="InputClasses\uspGetProfession.cs" />
+    <Compile Include="InputClasses\UspGetGroup_Detail.cs" />
+    <Compile Include="InputClasses\UspGetGroup_ID.cs" />
+    <Compile Include="InputClasses\uspGetFloor.cs" />
+    <Compile Include="InputClasses\uspGetPromotionDetail.cs" />
+    <Compile Include="InputClasses\UspGetSlabPromotion.cs" />
+    <Compile Include="InputClasses\uspInsertCOALocation.cs" />
+    <Compile Include="InputClasses\uspInsertTableReservationDetail.cs" />
+    <Compile Include="InputClasses\uspGetAddEditTableReservation.cs" />
+    <Compile Include="InputClasses\spUpdateStockDemand2.cs" />
+    <Compile Include="InputClasses\uspGetStockDemandNotification.cs" />
+    <Compile Include="InputClasses\uspInsertRecipeLocation.cs" />
+    <Compile Include="InputClasses\uspSearchProduct.cs" />
+    <Compile Include="InputClasses\uspSelectPromotionsScheme.cs" />
+    <Compile Include="InputClasses\uspSelectPromotionWithSchemes.cs" />
+    <Compile Include="InputClasses\uspGetItemsInventory.cs" />
+    <Compile Include="InputClasses\uspGetRecipeLocation.cs" />
+    <Compile Include="InputClasses\UspUpdateSKUinGroup.cs" />
+    <Compile Include="InputClasses\uspWarehouseMapping.cs" />
+    <Compile Include="InputClasses\uspUpdateInvoiceNumberRollBackTaxAuthority.cs" />
+    <Compile Include="InputClasses\GetAssingUserModule2.cs" />
+    <Compile Include="InputClasses\InsertShiftClose.cs" />
+    <Compile Include="InputClasses\MONTHALY_ATTENDANCE.cs" />
+    <Compile Include="InputClasses\OrderEntry\GetPendingCompletedOrdersCount.cs" />
+    <Compile Include="InputClasses\OrderEntry\spDateWiseItemConsumption.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spDayWisePurchaseReport.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spInsertPurchaseOrderDetail.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spGetSupplierPurchaseForGRN.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spSelectGRN.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spForceClosePurchaseOrder.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spUpdatePurchaseOrderMaster.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spSelectPurchaseOrderDetail.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spSelectPurchaseOrder.cs" />
+    <Compile Include="InputClasses\PurchaseOrder\spInsertPurchaseOrderMaster.cs" />
+    <Compile Include="InputClasses\SaleForce\uspGetSaleForceTrackingDetails.cs" />
+    <Compile Include="InputClasses\spActiveInactive.cs" />
+    <Compile Include="InputClasses\spActiveSKUS.cs" />
+    <Compile Include="InputClasses\spCheckSKU.cs" />
+    <Compile Include="InputClasses\spCOAConfiguration.cs" />
+    <Compile Include="InputClasses\spDELETE_DEAL_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spGetAttendance.cs" />
+    <Compile Include="InputClasses\spGetERPCode.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spInsertFranchiseSaleInvoice_Master.cs" />
+    <Compile Include="InputClasses\Franchise_Sale_Invoice\spInsertFranchiseSaleInvoice_Detail.cs" />
+    <Compile Include="InputClasses\spInsertblBOMIssuanceMaster.cs" />
+    <Compile Include="InputClasses\spInsertblProductionPlanMaster.cs" />
+    <Compile Include="InputClasses\spInsertblSplitItemMaster.cs" />
+    <Compile Include="InputClasses\spInsertPURCHASE_MASTERInvoiceBooking.cs" />
+    <Compile Include="InputClasses\spInsertSALE_INVOICE_DETAIL3.cs" />
+    <Compile Include="InputClasses\spInserttblBOMIssuanceDetail.cs" />
+    <Compile Include="InputClasses\spInserttblProductionPlanDetail.cs" />
+    <Compile Include="InputClasses\spInserttblSplitItemDetail.cs" />
+    <Compile Include="InputClasses\spSelecttblBOMIssuanceMaster.cs" />
+    <Compile Include="InputClasses\spSelecttblSplitItemMaster.cs" />
+    <Compile Include="InputClasses\spSelecttblProductionPlanMaster.cs" />
+    <Compile Include="InputClasses\spSelect_USERActive.cs" />
+    <Compile Include="InputClasses\spUpdatetblBOMIssuanceMaster.cs" />
+    <Compile Include="InputClasses\spUpdatetblSplitItemMaster.cs" />
+    <Compile Include="InputClasses\spUpdatetblProductionPlanMaster.cs" />
+    <Compile Include="InputClasses\uspGetTaxAuthority.cs" />
+    <Compile Include="InputClasses\uspGetItemPriceLevel.cs" />
+    <Compile Include="InputClasses\uspInsertPriceLeveDetail.cs" />
+    <Compile Include="InputClasses\uspUpdateTaxAuthorityIntegration.cs" />
+    <Compile Include="InputClasses\uspInsertTaxAuthorityIntegration.cs" />
+    <Compile Include="InputClasses\uspUpdatePriceLevelMaster.cs" />
+    <Compile Include="InputClasses\uspInsertPriceLevelMaster.cs" />
+    <Compile Include="InputClasses\uspItemAssignment.cs" />
+    <Compile Include="InputClasses\UpdateTakeawayOrderStatus.cs" />
+    <Compile Include="InputClasses\spUpdateLedgerInvoice.cs" />
+    <Compile Include="InputClasses\uspDeleteTodayMenu.cs" />
+    <Compile Include="InputClasses\uspGetInvoiceDetail.cs" />
+    <Compile Include="InputClasses\uspGetFBRIntegration.cs" />
+    <Compile Include="InputClasses\uspGetTodayMenu.cs" />
+    <Compile Include="InputClasses\uspGetManualKOTNo.cs" />
+    <Compile Include="InputClasses\spGetSKUSByName.cs" />
+    <Compile Include="InputClasses\spInsertAttendance.cs" />
+    <Compile Include="InputClasses\spInsertblRecipeProductionMaster.cs" />
+    <Compile Include="InputClasses\spInsertCASH_SKIMMING.cs" />
+    <Compile Include="InputClasses\spInsertCHECK_BOOK.cs" />
+    <Compile Include="InputClasses\spInsertCUSTOMER2.cs" />
+    <Compile Include="InputClasses\spInsertCUSTOMER_FEEDBACK.cs" />
+    <Compile Include="InputClasses\spInsertGL_DETAILVoucher.cs" />
+    <Compile Include="InputClasses\spInsertGL_MASTERVoucher.cs" />
+    <Compile Include="InputClasses\spInsertGL_MASTER2.cs" />
+    <Compile Include="InputClasses\spInsertLOYALTY_CARD.cs" />
+    <Compile Include="InputClasses\spInsertPhysicalStockTaking.cs" />
+    <Compile Include="InputClasses\spInsertPhysicalStockTakingDetail.cs" />
+    <Compile Include="InputClasses\spInsertPURCHASE_DETAIL2.cs" />
+    <Compile Include="InputClasses\spInsertSALE_INVOICE_CONSUMED.cs" />
+    <Compile Include="InputClasses\spDeleteSKU_Modifier.cs" />
+    <Compile Include="InputClasses\uspGetSalePromotion.cs" />
+    <Compile Include="InputClasses\uspInsertTodayMenu.cs" />
+    <Compile Include="InputClasses\UspProcessSKU_Prices_Raw.cs" />
+    <Compile Include="InputClasses\uspGetRawItemPrice.cs" />
+    <Compile Include="InputClasses\uspUpdateSalePromotion.cs" />
+    <Compile Include="InputClasses\uspInsertSalePromotionSKU.cs" />
+    <Compile Include="InputClasses\uspInsertSalePromotion.cs" />
+    <Compile Include="InputClasses\spInsertSKU_ModifierBulk.cs" />
+    <Compile Include="InputClasses\uspInsertSaleInvoiceItemLog.cs" />
+    <Compile Include="InputClasses\spInsertSALE_INVOICE_MASTER2.cs" />
+    <Compile Include="InputClasses\spInsertShift.cs" />
+    <Compile Include="InputClasses\spInsertSHIFT_OPENING_AMOUNT.cs" />
+    <Compile Include="InputClasses\spInsertSKU_Modifier.cs" />
+    <Compile Include="InputClasses\spInsertSlipNote_MASTER.cs" />
+    <Compile Include="InputClasses\spInsertSLIP_NOTE_DETAIL.cs" />
+    <Compile Include="InputClasses\spInsertStockDemandDetail.cs" />
+    <Compile Include="InputClasses\spInsertStockDemandMaster.cs" />
+    <Compile Include="InputClasses\spInserttblFinancialYear.cs" />
+    <Compile Include="InputClasses\spInserttblRecipeProductionDetail.cs" />
+    <Compile Include="InputClasses\spInsertVENDER_LEDGER.cs" />
+    <Compile Include="InputClasses\spIsExist.cs" />
+    <Compile Include="InputClasses\spITEM_DEAL_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spITEM_DEAL_ASSIGNMENT_DETAIL.cs" />
+    <Compile Include="InputClasses\spSelectCardType.cs" />
+    <Compile Include="InputClasses\spSelectCASH_SKIMMING.cs" />
+    <Compile Include="InputClasses\spSelectCategoryType.cs" />
+    <Compile Include="InputClasses\spSelectCHECK_BOOK.cs" />
+    <Compile Include="InputClasses\spSelectCHEQUE_PROCESS2.cs" />
+    <Compile Include="InputClasses\SpSelectCustomerWiseSaleReport.cs" />
+    <Compile Include="InputClasses\SpSelectDiscountedSaleInvoices.cs" />
+    <Compile Include="InputClasses\spSelectFinancialYear.cs" />
+    <Compile Include="InputClasses\spSelectHasModifier.cs" />
+    <Compile Include="InputClasses\SpSelectLocationWiseCustomer.cs" />
+    <Compile Include="InputClasses\spSelectLoyalty_Card.cs" />
+    <Compile Include="InputClasses\spSelectPendingTables.cs" />
+    <Compile Include="InputClasses\spSelectPhysicalStockTakingDetail.cs" />
+    <Compile Include="InputClasses\spSelectRawMaterialIssuence.cs" />
+    <Compile Include="InputClasses\SpSelectServiceWiseSaleReport.cs" />
+    <Compile Include="InputClasses\spSelectShift.cs" />
+    <Compile Include="InputClasses\spSelectSKU_Consumption.cs" />
+    <Compile Include="InputClasses\spSelectSKU_Modifier.cs" />
+    <Compile Include="InputClasses\spSelectSKU_ModifierReport.cs" />
+    <Compile Include="InputClasses\spSelectSlipNotes.cs" />
+    <Compile Include="InputClasses\spSelectStockDemandDetail.cs" />
+    <Compile Include="InputClasses\spSelecttblRecipeProductionMaster.cs" />
+    <Compile Include="InputClasses\spSelect_USERView.cs" />
+    <Compile Include="InputClasses\spUpdateAttendance.cs" />
+    <Compile Include="InputClasses\spUpdateCASH_SKIMMING.cs" />
+    <Compile Include="InputClasses\spUpdateCHECK_BOOK.cs" />
+    <Compile Include="InputClasses\spUpdateChequeStatus.cs" />
+    <Compile Include="InputClasses\spUpdateLOYALTY_CARD.cs" />
+    <Compile Include="InputClasses\spUpdatePassword.cs" />
+    <Compile Include="InputClasses\spUpdatePhysicalStockTaking.cs" />
+    <Compile Include="InputClasses\spUpdateSHIFT.cs" />
+    <Compile Include="InputClasses\spUpdateSHIFT_OPENING_AMOUNT.cs" />
+    <Compile Include="InputClasses\spUpdateSKU_Modifier.cs" />
+    <Compile Include="InputClasses\spUpdateSlip_Note_MASTER.cs" />
+    <Compile Include="InputClasses\spUpdateStockDemand.cs" />
+    <Compile Include="InputClasses\spUpdatetblFinancialYear.cs" />
+    <Compile Include="InputClasses\spUpdatetblRecipeProductionMaster.cs" />
+    <Compile Include="InputClasses\spVoidOrderSaleReport.cs" />
+    <Compile Include="InputClasses\sp_SelectSaleReport.cs" />
+    <Compile Include="InputClasses\sp_SelectSaleReport1.cs" />
+    <Compile Include="InputClasses\UspBillWiseInvoiceReportNew.cs" />
+    <Compile Include="InputClasses\uspDeletePrincipalOpening.cs" />
+    <Compile Include="InputClasses\uspGetAccountHeadModule.cs" />
+    <Compile Include="InputClasses\uspGetClosingStockLastPrice.cs" />
+    <Compile Include="InputClasses\uspGetDepartment_Employee.cs" />
+    <Compile Include="InputClasses\uspGetFinishedDetail.cs" />
+    <Compile Include="InputClasses\uspGetLicenseData.cs" />
+    <Compile Include="InputClasses\uspGetLoyaltyCardDetail.cs" />
+    <Compile Include="InputClasses\uspGetLoyaltyCardSalab.cs" />
+    <Compile Include="InputClasses\uspGetMinMaxAccountCode.cs" />
+    <Compile Include="InputClasses\uspGetPackageDetail.cs" />
+    <Compile Include="InputClasses\uspGetReference.cs" />
+    <Compile Include="InputClasses\uspGetVendorLedgerOpening.cs" />
+    <Compile Include="InputClasses\uspHourlyItemSales.cs" />
+    <Compile Include="InputClasses\uspInsertACCOUNT_HEAD_MODULE.cs" />
+    <Compile Include="InputClasses\uspInsertFinishedDetail.cs" />
+    <Compile Include="InputClasses\uspInsertFinishedMaster.cs" />
+    <Compile Include="InputClasses\uspInsertLoyaltyCardSalab.cs" />
+    <Compile Include="InputClasses\uspInsertLoyaltyCardSalabLocation.cs" />
+    <Compile Include="InputClasses\uspInsertPackageDetail.cs" />
+    <Compile Include="InputClasses\uspInsertPackageMaster.cs" />
+    <Compile Include="InputClasses\uspPraSyncReport.cs" />
+    <Compile Include="InputClasses\UspPrintBookerDSR.cs" />
+    <Compile Include="InputClasses\UspPrintBookerSkuDetail.cs" />
+    <Compile Include="InputClasses\UspPrintBookerWiseInvoiceDetail.cs" />
+    <Compile Include="InputClasses\UspReverseDayClosing.cs" />
+    <Compile Include="InputClasses\uspRptSelectStockStatus.cs" />
+    <Compile Include="InputClasses\uspGetEmployye.cs" />
+    <Compile Include="InputClasses\UspSelectPendingCreditInvoice2.cs" />
+    <Compile Include="InputClasses\spGetBreadCrumb.cs" />
+    <Compile Include="InputClasses\GetAssingUserModule.cs" />
+    <Compile Include="InputClasses\GetBasketMaster.cs" />
+    <Compile Include="InputClasses\GetBrandData.cs" />
+    <Compile Include="InputClasses\spDeleteBRAND_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spDeleteDEVICE_ALLOCATION.cs" />
+    <Compile Include="InputClasses\spDeleteDISTRIBUTOR_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spDeleteEMPLOYEE_ROLEDETAIL.cs" />
+    <Compile Include="InputClasses\spDeleteGL_MASTER.cs" />
+    <Compile Include="InputClasses\spDeleteSCHEDULE.cs" />
+    <Compile Include="InputClasses\spDeleteSCH_PARAMETER.cs" />
+    <Compile Include="InputClasses\spDeleteSCH_RECIPIENT.cs" />
+    <Compile Include="InputClasses\spDeleteSLASH_CODES.cs" />
+    <Compile Include="InputClasses\spDeleteSLASH_USER.cs" />
+    <Compile Include="InputClasses\spDeleteTARGET.cs" />
+    <Compile Include="InputClasses\spInsertACCOUNT_HEAD.cs" />
+    <Compile Include="InputClasses\spInsertBASKET_DETAIL.cs" />
+    <Compile Include="InputClasses\spInsertBASKET_MASTER.cs" />
+    <Compile Include="InputClasses\spInsertBRAND_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spInsertCHEQUE_PROCESS.cs" />
+    <Compile Include="InputClasses\spInsertCHEQUE_PROCESS_DETAIL.cs" />
+    <Compile Include="InputClasses\spInsertCUSTOMER.cs" />
+    <Compile Include="InputClasses\spInsertDISTRIBUTOR.cs" />
+    <Compile Include="InputClasses\spInsertDISTRIBUTOR_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spInsertDISTRIBUTOR_USER.cs" />
+    <Compile Include="InputClasses\spInsertGL_DETAIL.cs" />
+    <Compile Include="InputClasses\spInsertGL_MASTER.cs" />
+    <Compile Include="InputClasses\spInsertLEDGER.cs" />
+    <Compile Include="InputClasses\spInsertPRINCIPAL.cs" />
+    <Compile Include="InputClasses\spInsertPROMOTION.cs" />
+    <Compile Include="InputClasses\spInsertPROMOTION_CUSTOMER_VOLUMECLASS.cs" />
+    <Compile Include="InputClasses\spInsertPROMOTION_FOR.cs" />
+    <Compile Include="InputClasses\spInsertPROMOTION_OFFER.cs" />
+    <Compile Include="InputClasses\spInsertPURCHASE_DETAIL.cs" />
+    <Compile Include="InputClasses\spInsertPURCHASE_MASTER.cs" />
+    <Compile Include="InputClasses\spInsertROLE_DETAIL.cs" />
+    <Compile Include="InputClasses\spInsertROLE_MASTER.cs" />
+    <Compile Include="InputClasses\uspGetDeliveryChannel.cs" />
+    <Compile Include="InputClasses\UspSelectVendorBankCashDetail.cs" />
+    <Compile Include="InputClasses\UspSelectVoucherNoEdit.cs" />
+    <Compile Include="InputClasses\uspUpdateLoyaltyCardSalab.cs" />
+    <Compile Include="InputClasses\UspUpdateVendorLedger.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertSALE_INVOICE_DETAIL.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertSALE_INVOICE_MASTER.cs" />
+    <Compile Include="InputClasses\spInsertSAMS_USER.cs" />
+    <Compile Include="InputClasses\spInsertSAMS_USER_LOG.cs" />
+    <Compile Include="InputClasses\spInsertSKUS.cs" />
+    <Compile Include="InputClasses\spInsertSKU_HIERARCHY.cs" />
+    <Compile Include="InputClasses\spInsertSKU_STOCK_REGISTER.cs" />
+    <Compile Include="InputClasses\spInsertCODES.cs" />
+    <Compile Include="InputClasses\spSelectACCOUNT_HEAD.cs" />
+    <Compile Include="InputClasses\spSelectBASKET_MASTER01.cs" />
+    <Compile Include="InputClasses\spSelectCHEQUE_ENTRY.cs" />
+    <Compile Include="InputClasses\spSelectCOMPANY.cs" />
+    <Compile Include="InputClasses\spSelectCUSTOMER.cs" />
+    <Compile Include="InputClasses\spSelectDESIGNATION.cs" />
+    <Compile Include="InputClasses\spSelectDISTRIBUTOR_TYPE.cs" />
+    <Compile Include="InputClasses\spSelectDISTRIBUTOR_USER.cs" />
+    <Compile Include="InputClasses\spSelectGL_DETAIL.cs" />
+    <Compile Include="InputClasses\spSelectGL_MASTER.cs" />
+    <Compile Include="InputClasses\spSelectMODULE.cs" />
+    <Compile Include="InputClasses\spSelectPRINCIPAL.cs" />
+    <Compile Include="InputClasses\spSelectPROMOTION_CUSTOMER_VOLUMECLASS.cs" />
+    <Compile Include="InputClasses\spSelectPROMOTION_FOR.cs" />
+    <Compile Include="InputClasses\spSelectPURCHASE_DETAIL.cs" />
+    <Compile Include="InputClasses\spSelectPURCHASE_MASTER.cs" />
+    <Compile Include="InputClasses\spSelectROLE_MASTER.cs" />
+    <Compile Include="InputClasses\spSelect_USER.cs" />
+    <Compile Include="InputClasses\spSelectskuPriceInfo.cs" />
+    <Compile Include="InputClasses\spSelectSKUS.cs" />
+    <Compile Include="InputClasses\spSelectSKU_HIERARCHY.cs" />
+    <Compile Include="InputClasses\spSelectCODES.cs" />
+    <Compile Include="InputClasses\spUpdateACCOUNT_HEAD.cs" />
+    <Compile Include="InputClasses\spUpdateBRAND_ASSIGNMENT.cs" />
+    <Compile Include="InputClasses\spUpdateCHEQUE_PROCESS.cs" />
+    <Compile Include="InputClasses\spUpdateCUSTOMER.cs" />
+    <Compile Include="InputClasses\spUpdateDISTRIBUTOR.cs" />
+    <Compile Include="InputClasses\spUpdateDISTRIBUTOR_USER.cs" />
+    <Compile Include="InputClasses\spUpdatePRINCIPAL.cs" />
+    <Compile Include="InputClasses\spUpdatePROMOTION.cs" />
+    <Compile Include="InputClasses\spUpdatePURCHASE_MASTER.cs" />
+    <Compile Include="InputClasses\MaleesCafee\uspUnlockRecord.cs" />
+    <Compile Include="InputClasses\MaleesCafee\uspGetTodayMenuItems.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spUpdateSALE_INVOICE_KITCHEN.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spUpdateSALE_INVOICE_MASTERNew.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spUpdateSALE_INVOICE_MASTER.cs" />
+    <Compile Include="InputClasses\spUpdateUSER.cs" />
+    <Compile Include="InputClasses\spUpdateSAMS_USER_LOG.cs" />
+    <Compile Include="InputClasses\spUpdateSKUS.cs" />
+    <Compile Include="InputClasses\spUpdateSKU_HIERARCHY.cs" />
+    <Compile Include="InputClasses\spUpdateCODES.cs" />
+    <Compile Include="InputClasses\UspCheckGLTransction.cs" />
+    <Compile Include="InputClasses\UspChequeInvoice.cs" />
+    <Compile Include="InputClasses\UspCustomerOpBalance.cs" />
+    <Compile Include="InputClasses\UspDayClosing.cs" />
+    <Compile Include="InputClasses\UspDeleteCheque_Process.cs" />
+    <Compile Include="InputClasses\UspGetBrandAssignment.cs" />
+    <Compile Include="InputClasses\UspGetModules.cs" />
+    <Compile Include="InputClasses\UspGetVoucherTypeRights.cs" />
+    <Compile Include="InputClasses\UspPostSelectVoucher.cs" />
+    <Compile Include="InputClasses\UspProcessSKU_Prices.cs" />
+    <Compile Include="InputClasses\UspProcessStockRegister.cs" />
+    <Compile Include="InputClasses\UspRollBackDocument.cs" />
+    <Compile Include="InputClasses\uspSelectAllDISTRIBUTOR.cs" />
+    <Compile Include="InputClasses\uspSelectAllUsers.cs" />
+    <Compile Include="InputClasses\UspSelectBankCashDetail.cs" />
+    <Compile Include="InputClasses\UspSelectClaimDetail.cs" />
+    <Compile Include="InputClasses\uspSelectCUSTOMER.cs" />
+    <Compile Include="InputClasses\uspSelectDISTRIBUTOR.cs" />
+    <Compile Include="InputClasses\uspSelectDistributorInfo.cs" />
+    <Compile Include="InputClasses\uspGetDistributorUser.cs" />
+    <Compile Include="InputClasses\uspSelectMaxDayClose.cs" />
+    <Compile Include="InputClasses\UspSelectMaxDayCloseDistributor.cs" />
+    <Compile Include="InputClasses\UspSelectMaxDocumentNo.cs" />
+    <Compile Include="InputClasses\UspSelectMaxVoucherNo.cs" />
+    <Compile Include="InputClasses\UspSelectPendingCreditInvoice.cs" />
+    <Compile Include="InputClasses\uspSelectPrincipalAreaWiseSaleForce.cs" />
+    <Compile Include="InputClasses\UspSelectRollBackDocument.cs" />
+    <Compile Include="InputClasses\uspSelectSETTINGS_TABLE01.cs" />
+    <Compile Include="InputClasses\uspSelectSkuInfo.cs" />
+    <Compile Include="InputClasses\UspSelectSKUPriceList.cs" />
+    <Compile Include="InputClasses\UspSelectUnAssignDistributor.cs" />
+    <Compile Include="InputClasses\UspSelectVoucherNo.cs" />
+    <Compile Include="InputClasses\UspUpdatePurchaseDetailStock.cs" />
+    <Compile Include="InputClasses\usp_GetAssign_AccountHead.cs" />
+    <Compile Include="InputClasses\usp_GetDistributorHierarchy.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spDeleteTableDefination.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spGetPendingBill.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertPRODUCT_SECTION.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertTableDefination.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spInsertUOM.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spSelectMaxUOM_ID.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spSelectPendingBills.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spSelectPRODUCT_SECTION.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spSelectSkusforOrder.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spSelectTableDefination.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spSelectUOM.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spUpdatePRODUCT_SECTION.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spUpdateTableDefination.cs" />
+    <Compile Include="InputClasses\MaleesCafee\spUpdateUOM.cs" />
+    <Compile Include="InputClasses\SpSelectDataForPOSLoad.cs" />
+    <Compile Include="ReportClasses\GetPurchasedocument.cs" />
+    <Compile Include="ReportClasses\GetPurchasedocumentPopUp.cs" />
+    <Compile Include="ReportClasses\RptPurchaseOrder.cs" />
+    <Compile Include="ReportClasses\uspGetConsumptionAccountHeadWise.cs" />
+    <Compile Include="ReportClasses\uspGetExpenseDetailBeirut.cs" />
+    <Compile Include="ReportClasses\uspGetOtherIncomCrossTab.cs" />
+    <Compile Include="ReportClasses\uspGetExpenseDetailCrossTab.cs" />
+    <Compile Include="ReportClasses\RptSupplierPaymentDetailDateWise.cs" />
+    <Compile Include="ReportClasses\uspGetVoucherSummary.cs" />
+    <Compile Include="ReportClasses\spSelectVoucherPopup.cs" />
+    <Compile Include="ReportClasses\uspCheckItemSales.cs" />
+    <Compile Include="ReportClasses\uspGetFranchiseSummary.cs" />
+    <Compile Include="ReportClasses\uspGetTableReservation.cs" />
+    <Compile Include="ReportClasses\spSelectVoucher2.cs" />
+    <Compile Include="ReportClasses\uspGetKDSOrderTime.cs" />
+    <Compile Include="ReportClasses\uspGetCallCenterInvoices.cs" />
+    <Compile Include="ReportClasses\uspGetDataForNotification.cs" />
+    <Compile Include="ReportClasses\RptPetyCashStatment.cs" />
+    <Compile Include="ReportClasses\rptPriceList.cs" />
+    <Compile Include="ReportClasses\spPrintDailySalesReportDateWise.cs" />
+    <Compile Include="ReportClasses\spPrintVouchers.cs" />
+    <Compile Include="ReportClasses\spSelectStockDemandForPrint.cs" />
+    <Compile Include="ReportClasses\spSelectStockDemandReprot.cs" />
+    <Compile Include="ReportClasses\spSelectVoucher.cs" />
+    <Compile Include="ReportClasses\spSupllierWisePurchase.cs" />
+    <Compile Include="ReportClasses\USPCLOSEDSHIFTS.cs" />
+    <Compile Include="ReportClasses\UspCustomerLedger.cs" />
+    <Compile Include="ReportClasses\UspDailyPurchaseTransfer.cs" />
+    <Compile Include="ReportClasses\UspGetACCOUNT_HEAD.cs" />
+    <Compile Include="ReportClasses\uspGetBalanceSheet.cs" />
+    <Compile Include="ReportClasses\uspGetDashboardData.cs" />
+    <Compile Include="ReportClasses\uspGetDashboardFile.cs" />
+    <Compile Include="ReportClasses\uspGetDailyReconciliation.cs" />
+    <Compile Include="ReportClasses\uspGetItemRecipe.cs" />
+    <Compile Include="ReportClasses\uspGetSKULedgerDataOpening.cs" />
+    <Compile Include="ReportClasses\uspGetSKULedgerData.cs" />
+    <Compile Include="ReportClasses\uspGetThirdPartySale.cs" />
+    <Compile Include="ReportClasses\UspGetGLOpening.cs" />
+    <Compile Include="ReportClasses\uspGetItemCancelDeleteLog.cs" />
+    <Compile Include="ReportClasses\uspGetItemList.cs" />
+    <Compile Include="ReportClasses\uspGetItemWisePurchase.cs" />
+    <Compile Include="ReportClasses\uspGetDailyDeliveryData.cs" />
+    <Compile Include="ReportClasses\uspGetServiceWiseCoverTables.cs" />
+    <Compile Include="ReportClasses\uspGetStockValuation2.cs" />
+    <Compile Include="ReportClasses\uspGetStockVariation.cs" />
+    <Compile Include="ReportClasses\uspGetPhysicalStockTaking.cs" />
+    <Compile Include="ReportClasses\uspGetSupplierClosingSummary.cs" />
+    <Compile Include="ReportClasses\uspGetSupplierStatmentReport.cs" />
+    <Compile Include="ReportClasses\uspGetTimeCard.cs" />
+    <Compile Include="ReportClasses\uspGetUserLoginDetail.cs" />
+    <Compile Include="ReportClasses\uspGetSupplierAging.cs" />
+    <Compile Include="ReportClasses\uspGetVendorLedgerReport.cs" />
+    <Compile Include="ReportClasses\uspGetGrossProfitItemWise.cs" />
+    <Compile Include="ReportClasses\UspGrossProfitReportCrossTabAKFood.cs" />
+    <Compile Include="ReportClasses\UspGrossProfitReportCrossTab.cs" />
+    <Compile Include="ReportClasses\UspGrossProfitReportDelish.cs" />
+    <Compile Include="ReportClasses\UspGrossProfitReportBeirut.cs" />
+    <Compile Include="ReportClasses\UspGrossProfitReport.cs" />
+    <Compile Include="ReportClasses\uspHourlyItemWiseSales.cs" />
+    <Compile Include="ReportClasses\uspHourlyItemSalesSummary.cs" />
+    <Compile Include="ReportClasses\spSelectCashPaymentVoucher.cs" />
+    <Compile Include="ReportClasses\UspCashBankBook.cs" />
+    <Compile Include="ReportClasses\UspLedgerReport.cs" />
+    <Compile Include="ReportClasses\UspPrincipalWiseExp.cs" />
+    <Compile Include="ReportClasses\UspPrintChartofAccount.cs" />
+    <Compile Include="ReportClasses\UspPrintSaleAnalysisSummary.cs" />
+    <Compile Include="ReportClasses\uspGetDayEndDate.cs" />
+    <Compile Include="ReportClasses\uspLowStockList.cs" />
+    <Compile Include="ReportClasses\uspGSTPaymentModeBreakup.cs" />
+    <Compile Include="ReportClasses\UspPrintSaleForceDSRNew.cs" />
+    <Compile Include="ReportClasses\UspPrintTrialBalanceCocoRush.cs" />
+    <Compile Include="ReportClasses\UspPrintTrialBalance.cs" />
+    <Compile Include="ReportClasses\uspGetSalesRawData.cs" />
+    <Compile Include="ReportClasses\uspItemWiseSales.cs" />
+    <Compile Include="ReportClasses\uspRegionWiseItemSales.cs" />
+    <Compile Include="ReportClasses\UspRolemanagementDetail.cs" />
+    <Compile Include="ReportClasses\UspRptPettyCashSummery.cs" />
+    <Compile Include="ReportClasses\uspGetClosingStockSummary.cs" />
+    <Compile Include="ReportClasses\uspRptSelectStockRegisterSection.cs" />
+    <Compile Include="ReportClasses\uspRptSelectStockRegister.cs" />
+    <Compile Include="ReportClasses\uspSelectdatewisestocktaking.cs" />
+    <Compile Include="ReportClasses\UspSelectGLUserDetail.cs" />
+    <Compile Include="ReportClasses\UspSelectPrincipalWiseCustomer.cs" />
+    <Compile Include="ReportClasses\UspSelectReportTitile.cs" />
+    <Compile Include="ReportClasses\UspTransferInOutValue.cs" />
+    <Compile Include="ReportClasses\UspTransferInrpt.cs" />
+    <Compile Include="ReportClasses\uspGetExpenseDetail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

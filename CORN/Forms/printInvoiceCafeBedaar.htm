@@ -1,0 +1,435 @@
+﻿<div style="display:none;">
+    <div id="dvInvoiceCafeBedaar">
+        <style>
+            p {
+                font-size: 13px;
+                margin: 0px;
+            }
+
+            .receipt {
+                font-family: 'Courier New, Courier, monospace';
+                padding: 0px;
+                width: 2.9in;
+            }
+
+            .dotted-line {
+                border: none; /* Remove default border */
+                border-top: 2px dotted #000; /* Add a dotted border */
+                color: lightgray; /* Dotted line color */
+                background-color: transparent; /* Transparent background */
+                height: 2px; /* Line thickness */
+                margin: 20px 0; /* Add spacing around the line */
+            }
+            .normal-line {
+                border: none;
+                border-top: 2px; /* Add a dotted border */
+                background-color: transparent; /* Transparent background */
+                height: 2px; /* Line thickness */
+                margin: 20px 0; /* Add spacing around the line */
+            }
+            .dotted-bottom {
+                border-bottom: 2px dotted #000; /* Adds a dotted bottom border */
+            }            
+        </style>
+        <div id="receipt" class="receipt">
+            <table style="width:100%;border-spacing:0px;">
+                <tr>
+                    <td class="logom2" style="width: 100%;text-align:center;">
+                        <img id="imgLogoCafeBedaar" src="../images/watch.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align:center;">
+                        <p id="AddressCafeBedaar" style="text-align:center;margin:0;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <p style="text-align:center;margin:0;font-size:18px;" id="header">PAYMENT RECEIPT</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <p id="CustomerTypeCafeBedaar" style="text-align:center;margin:0;font-size:18px;">Takeaway</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;" cellspacing="0">
+                <tr id="trTableCafeBeddar">
+                    <td style="width:50%;">
+                        <p style="margin:0;font-size:18px;" id="TableNoCafeBeddar"></p>
+                    </td>
+                    <td style="width:50%;"></td>
+                </tr>
+                <tr id="trCustomerNameCafeBeddar">
+                    <td style="width:50%;">
+                        <p id="CustomerNameCafeBedaar" style="margin:0;"></p>
+                    </td>
+                    <td style="width:50%;text-align:right;">
+                        <p id="CustomerContactCafeBedaar" style="margin:0;"></p>
+                    </td>
+                </tr>
+                <tr id="trCustomerAddressCafeBeddar">
+                    <td style="width:100%;" colspan="2">
+                        <p id="CustomerAddressafeBedaar" style="margin:0;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">
+                        <p id="OrderTimeCafeBedaar" style="margin:0;"></p>
+                    </td>
+                    <td style="width:50%;text-align:right;">
+                        <p id="OrderDateCafeBedaar" style="margin:0;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">
+                        <p id="OrderTakerCafeBedaar" style="margin:0;"></p>
+                    </td>
+                    <td style="width:50%;text-align:right;">
+                        <p id="CashierCafeBedaar" style="margin:0;"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">
+                        <p id="GuestCafeBedaar" style="margin:0;"></p>
+                    </td>
+                    <td style="width:50%;text-align:right;">
+                        <p id="BillNoCafeBedaar" style="margin:0;"></p>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;">
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;" cellspacing="0">
+                <tr>
+                    <td style="width:70%;text-align:left;">
+                        <p id="BillDateCafeBedaar" style="margin:0;"></p>
+                    </td>
+                    <td style="width:30%;text-align:right;font-weight:bold;">
+                        <p id="OrderNoCafeBedaar" style="margin:0;">Order No:10</p>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;">
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-collapse: collapse" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr class="dotted-bottom">
+                        <th style="width: 1.44in;margin:0;font-weight:bold;">
+                            <p>NAME</p>
+                        </th>
+                        <th style="width: 0.55in;margin:0;text-align:right;font-weight:bold;">
+                            <p>QTY</p>
+                        </th>
+                        <th style="width: 0.55in;margin:0;text-align:right;font-weight:bold;">
+                            <p>RATE</p>
+                        </th>
+                        <th style="width: 0.77in;margin:0;text-align:right;font-weight:bold;">
+                            <p>AMT</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="invoiceDetailCafeBedaar"></tbody>
+            </table>
+            <table style="width:100%;border-spacing:0px;">
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;padding-bottom:1px;" />
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;" id="tblTotalCafeBedaar">
+                <tr>
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Sub Total:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="subTotalCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="trDiscountCafeBeedar">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Discount:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="discountCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="trTaxCafeBeedar">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;" id="taxlabelCafeBeedar">Tax: GST 16%</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="taxCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="trServiceChargesCafeBeedar">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Service Charges:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="sercicechargesCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="POSFeeRowCafeBedaar" style="display:none;">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">POS Fee:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="POSFeeCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:18px;">Total:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:18px;" id="totalCafeBeedar">0</p>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;" id="tblCashCreditBothCafeBedaar">
+                <tr>
+                    <td style="width: 40%;margin:0;" colspan="2">
+                        <p style="font-size:11px;font-weight:bold;" id="CashHeaderCafeBedaar"></p>
+                    </td>
+                    <td style="width: 10%;margin:0;"></td>
+                    <td style="width: 40%;margin:0;" colspan="2">
+                        <p style="font-size:11px;font-weight:bold;" id="CreditCardHeaderCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 100%;margin:0;" colspan="5">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">Sub Total:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="SubTotalCashCafeBedaar"></p>
+                    </td>
+                    <td style="width: 10%;margin:0;"></td>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">Sub Total:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="SubTotalCreditCardCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">Discount:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="DiscountCashCafeBedaar"></p>
+                    </td>
+                    <td style="width: 10%;margin:0;"></td>  
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">Discount:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="DiscountCreditCardCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">GST:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="GSTCashCafeBedaar"></p>
+                    </td>
+                    <td style="width: 10%;margin:0;"></td>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">GST:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="GSTCreditCardCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">Service Charges:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="ServiceChargesCashCafeBedaar"></p>
+                    </td>
+                    <td style="width: 10%;margin:0;"></td>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:12px;">Service Charges:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:12px;" id="ServiceChargesCreditCardCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:18px;">Total:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:18px;" id="TotalCashCafeBedaar"></p>
+                    </td>
+                    <td style="width: 10%;margin:0;"></td>
+                    <td style="width: 20%;margin:0;">
+                        <p style="font-size:18px;">Total:</p>
+                    </td>
+                    <td style="width: 25%;margin:0;" align="right">
+                        <p style="font-size:18px;" id="TotalCreditCardCafeBedaar"></p>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;">
+                <tr>
+                    <td style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;" id="tblPaymentCafeBedaar">
+                <tr id="trCashCafeBeddar">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Cash:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="cashCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="trCashLineCafeBeddar">
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+                <tr id="trCreditCareCafeBeddar">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Credit Card:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="creditcardCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="trCreditCareLineCafeBeddar">
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+                <tr id="trCreditCafeBeddar">
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Credit:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="cardCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr id="trCreditLineCafeBeddar">
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Tendered:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="tenderedCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;margin:0;">
+                        <p style="font-size:12px;">Change:</p>
+                    </td>
+                    <td style="width: 50%;margin:0;text-align:right;">
+                        <p style="font-size:12px;" id="changeCafeBeedar">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <hr class="dotted-line" style="margin:0;" />
+                    </td>
+                </tr>
+                <tr id="trFBRInvoicePRACafeBedaar" style="display: none;">
+                    <td colspan="2">
+                        <label id="FBRInvoiceNoPRACafeBedaar">
+                        </label>
+                    </td>
+                </tr>
+                <tr id="trQRImagePRACafeBedaar" style="display: none">
+                    <td>
+                        <img id="imgQrCodePRACafeBedaar" src="" height="100" width="100">
+                    </td>
+                    <td>
+                        <img id="imgpraCafeBedaar" src="../images/logopra.jpg" height="100" width="100" style="display: none;">
+                    </td>
+                </tr>
+                <tr id="trFBRInvoiceFBRCafeBedaar" style="display: none;">
+                    <td colspan="2">
+                        <label id="FBRInvoiceNoFBRCafeBedaar">
+                        </label>
+                    </td>
+                </tr>
+                <tr id="trQRImageFBRCafeBedaar" style="display: none">
+                    <td>
+                        <img id="imgQrCodeFBRCafeBedaar" src="" height="100" width="100">
+                    </td>
+                    <td>
+                        <img id="imgfbrCafeBedaar" src="../images/logofbr.jpg" height="100" width="100" style="display: none;">
+                    </td>
+                </tr>
+                <tr id="trOrderNotes3">
+                    <td colspan="7" style="font-size: 10px;">
+                        <label id="lblOrderNotes3"></label>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%;border-spacing:0px;">
+                <tr>
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <p id="PNTNCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <p id="STRNCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <p id="ltrlSlipNoteCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 100%;text-align:center;margin:0;">
+                        <p id="ComapnyEmailCafeBedaar"></p>
+                    </td>
+                </tr>
+                <tr id="trOpinionSurveyCafeBedaar" style="display: none;">
+                    <td colspan="2" style="font-size: 10px;">
+                        <img id="imgOpinionSurvey" runat="server" src="../images/GuestOpenionSurveryQRCode.jpeg" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

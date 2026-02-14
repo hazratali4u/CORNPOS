@@ -1,0 +1,144 @@
+﻿using System;
+using System.Web;
+using System.Web.UI;
+using System.Data;
+using CORNBusinessLayer.Classes;
+using CORNCommon.Classes;
+using CORNBusinessLayer.Reports;
+using System.Web.UI.WebControls;
+
+public partial class Forms_rptStockValuationItemWise : System.Web.UI.Page
+{
+    /// <summary>
+    /// Page_Load Function
+    /// </summary>
+    /// <param name="sender">object</param>
+    /// <param name="e">EventArgs</param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+        Response.Cache.SetNoStore();
+        Response.AppendHeader("pragma", "no-cache");
+        if (!Page.IsPostBack)
+        {
+            this.LoadDistributor();
+            //LoadCatagory();
+            LoadItems();
+            Configuration.SystemCurrentDateTime = (DateTime)this.Session["CurrentWorkDate"];
+            txtStartDate.Text = Configuration.SystemCurrentDateTime.ToString("dd-MMM-yyyy");
+            txtStartDate.Attributes.Add("readonly", "readonly");
+            // chbAllSections.Checked = true;
+            if (chbAllSections.Checked == true)
+            {
+                for (int i = 0; i < chblSection.Items.Count; i++)
+                {
+                    chblSection.Items[i].Selected = true;
+                }
+            }
+        }
+    }
+    private void LoadItems()
+    {
+        SKUPriceDetailController PController = new SKUPriceDetailController();
+        DataTable m_dt = PController.SelectDataPrice(Constants.IntNullValue, Constants.IntNullValue, Constants.IntNullValue, Constants.IntNullValue, Constants.IntNullValue, int.Parse(this.Session["UserId"].ToString()), Constants.IntNullValue, 5, DateTime.Parse(this.Session["CurrentWorkDate"].ToString()));
+        clsWebFormUtil.FillListBox(this.chblSection, m_dt, "SKU_ID", "SKU_NAME");
+    }
+
+    /// <summary>
+    /// Loads Locations To Location Combo
+    /// </summary>
+    private void LoadDistributor()
+    {
+        DistributorController DController = new DistributorController();
+        DataTable dt = DController.SelectDistributorInfo(Constants.IntNullValue, int.Parse(this.Session["UserId"].ToString()), int.Parse(this.Session["CompanyId"].ToString()));
+        clsWebFormUtil.FillDxComboBoxList(drpDistributor, dt, 0, 2);
+
+        if (dt.Rows.Count > 0)
+        {
+            drpDistributor.SelectedIndex = 0;
+        }
+    }
+    protected void LoadCatagory()
+    {
+        var hierarchy = new SkuHierarchyController();
+        DataTable dt = hierarchy.SelectSkuHierarchy(Constants.SKUCategory, Constants.IntNullValue, Constants.IntNullValue, null, null, true, int.Parse(Session["CompanyId"].ToString()), Constants.IntNullValue);
+        clsWebFormUtil.FillListBox(chblSection, dt, 0, 3);
+        if (dt.Rows.Count > 0)
+        {
+            chblSection.SelectedIndex = 0;
+        }
+    }
+    //protected void txtSearch_TextChanged(object sender, EventArgs e)
+    //{
+    //    foreach (ListItem item in chblSection.Items)
+    //    {
+    //        // Compare the item's text with the search text
+    //        if (item.Text.IndexOf(txtSearch.Text, StringComparison.OrdinalIgnoreCase) >= 0)
+    //        {
+    //            item.Enabled = true;  // Show the item
+    //        }
+    //        else
+    //        {
+    //            item.Enabled = false; // Hide the item
+    //        }
+    //    }
+    //}
+    private void showReport(int reporType)
+    {
+        DocumentPrintController mController = new DocumentPrintController();
+        RptInventoryController RptInventoryCtl = new RptInventoryController();
+        string catids = "";
+        var selectedCount = 0;
+        for (int i = 0; i < chblSection.Items.Count; i++)
+        {
+            if (chblSection.Items[i].Selected == true)
+            {
+                catids = catids + chblSection.Items[i].Value + ",";
+                selectedCount++;
+            }
+        }
+
+        if (selectedCount == 0)
+        {
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('Please select Items');", true);
+            return;
+        }
+        DataTable dt = mController.SelectReportTitle(int.Parse(drpDistributor.SelectedItem.Value.ToString()));
+        DataSet ds = RptInventoryCtl.GetStockValuation2(int.Parse(drpDistributor.SelectedItem.Value.ToString()),
+            DateTime.Parse(txtStartDate.Text),catids,Convert.ToInt32(rblRate.SelectedValue),
+            Constants.IntNullValue);
+
+        CrpStockValuation CrpReport = new CrpStockValuation();
+        CrpReport.SetDataSource(ds);
+        CrpReport.Refresh();
+
+
+        CrpReport.SetParameterValue("Location", drpDistributor.SelectedItem.Text);
+        CrpReport.SetParameterValue("Date", txtStartDate.Text);
+        CrpReport.SetParameterValue("CompanyName", dt.Rows[0]["COMPANY_NAME"].ToString());
+        CrpReport.SetParameterValue("user", Session["UserName"].ToString());
+        CrpReport.SetParameterValue("PriceLable", rblRate.SelectedItem.Text);
+        Session.Add("CrpReport", CrpReport);
+        Session.Add("ReportType", reporType);
+        const string url = "'Default.aspx'";
+        const string script = "<script language='JavaScript' type='text/javascript'> window.open(" + url + ",\"Link\",\"toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,width=800,height=600,left=10,top=10\");</script>";
+        Type cstype = this.GetType();
+        ClientScriptManager cs = Page.ClientScript;
+        cs.RegisterStartupScript(cstype, "OpenWindow", script);
+    }
+    protected void btnViewPDF_Click(object sender, EventArgs e)
+    {
+        showReport(0);
+    }
+
+    /// <summary>
+    /// Shows Stock Reconciliation in Excel
+    /// </summary>
+    /// <param name="sender">object</param>
+    /// <param name="e">EventArgs</param>
+    protected void btnViewExcel_Click(object sender, EventArgs e)
+    {
+        showReport(1);
+    }
+}

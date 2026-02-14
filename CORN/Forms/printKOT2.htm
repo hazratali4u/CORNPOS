@@ -1,0 +1,316 @@
+﻿<div class="col-md-12">
+    <div id="invoice-kitchen2" class="tablesorter">
+        <style type="text/css">
+            .invoice-kitchen2 {
+                margin-top: 15px;
+                margin-left: 2px;
+                width: 3.2in;
+            }
+                .invoice-kitchen2 h5 {
+                    margin: 5px;
+                }
+
+                .invoice-kitchen2 hr {
+                    margin: 0;
+                    border: 1px black solid;
+                }
+
+                .invoice-kitchen2 .detail-section {
+                    margin: 5px;
+                }
+
+                    .invoice-kitchen2 .detail-section table tr td {
+                        font-family: Arial;
+                        font-size: 12px;
+                        padding: 5px;
+                        margin-bottom: 10px;
+                        text-transform: capitalize;
+                    }
+
+                .invoice-kitchen2 label {
+                    display: inline;
+                }
+
+            .text-left {
+                text-align: left;
+            }
+
+            .text-right {
+                text-align: right;
+            }
+
+            .text-center {
+                text-align: center;
+            }
+
+            table {
+                max-width: 100%;
+                background-color: transparent;
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            body {
+                font-family: Arial;
+                font-size: 12px;
+                line-height: 1.42857143;
+                color: #333; /* background-color: #fff; */
+                text-transform: capitalize;
+            }
+
+            div {
+                display: block;
+            }
+
+            h5 {
+                font-size: 14px;
+                text-transform: capitalize;
+            }
+
+            h2 {
+                font-size: 30px;
+                text-transform: capitalize;
+            }
+
+            h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+                font-family: inherit;
+                font-weight: 500;
+                line-height: 1.1;
+                color: inherit;
+                text-transform: capitalize;
+            }
+
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            user agent stylesheeth5 {
+                display: block;
+                font-size: 0.83em;
+                -webkit-margin-before: 1.67em;
+                -webkit-margin-after: 1.67em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .uppercase {
+                text-transform: uppercase;
+            }
+
+            span.step {
+                -webkit-border-radius: 999px;
+                -moz-border-radius: 999px;
+                border-radius: 999px;
+                width: 100%;
+                padding: 5px;
+                background: #fff;
+                border: 2px solid #666;
+                color: #666;
+                text-align: center;
+            }
+        </style>
+        <div class="invoice-kitchen2">
+            <table style="width:100%;">
+                <tr>
+                    <td>
+                        <h5>
+                            <label id="OrderprintType2">
+                            </label>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">
+                        <h2>
+                            <label id="SectionName2" style="font-weight:bold;">
+                            </label>
+                        </h2>
+                    </td>
+                    <td rowspan="3" style="text-align:right"></td>
+                </tr>
+                <tr>
+                    <td style="width:100%;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:40%;">
+                                    <label style="font-size:16px;" id="PrintMaxOrderNo2" class="uppercase">
+                                    </label>
+                                </td>
+                                <td style="width:60%;" align="right">
+                                    <label id="Date2" style="font-size:16px;">
+                                    </label>
+                                    <label id="Time2" style="font-size:16px;">
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:100%;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:40%;">
+                                    <label style="font-size:16px;" id="lblServiceType" class="uppercase">
+                                        Service Type
+                                    </label>
+                                </td>
+                                <td style="width:60%;" align="right">
+                                    <label id="lblOrderBooker" style="font-size:16px;">
+                                        O.B
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr style="border: 1px solid black;" />
+                    </td>
+                </tr>
+                <tr style="display:none;">
+                    <td>
+                        <label id="lblserviceName2" class="uppercase">
+                            service type :
+                        </label>
+                        <label id="CustomerType2">
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <label>
+                                Customer :
+                            </label>
+                            <label id="CustomerName2">
+                            </label>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>
+                            <label id="TableNo2">
+                            </label>
+                        </h5>
+                    </td>
+                </tr>
+                <tr style="display:none;">
+                    <td>
+                        <h5>
+                            <label id="kitchenOrderTaker2">
+                            </label>
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr style="border: 1px solid black;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:100%;">
+                        <div id="divDuplicate2" style="font-size: 14px;text-transform: capitalize;font-weight:bold;margin: 5px;">
+                        </div>
+                        <div class="detail-section">
+                            <div id="divAdd2" style="font-size: 14px;text-transform: capitalize;font-weight:bold;margin: 5px;">
+                            </div>
+                            <table style="width: 100%" id="tblAddItem2">
+                                <thead>
+                                    <tr style="font-family: Arial; font-size: 16px;
+                                height: 40%;">
+                                        <td style="width: 15%;">
+                                            <strong>SR#</strong>
+                                        </td>
+                                        <td style="width: 70%;">
+                                            <strong>ITEM NAME</strong>
+                                        </td>
+                                        <td style="width: 15%;" class="text-right">
+                                            <strong>QTY</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="width:100%;">
+                                            <hr style="border: 1px solid black;" />
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="detail-section-skus2" style="font-family: Arial; font-size: 16px;font-weight:bold;"></tbody>
+                            </table>
+                            <div id="divCancel2" style="font-size: 14px;text-transform: capitalize;font-weight:bold;margin: 5px;">
+                            </div>
+                            <table style="width: 100%" id="tblCancelItem2">
+                                <thead>
+                                    <tr style="font-family: Arial; font-size: 16px;
+                                height: 40%;">
+                                        <td style="width: 15%;">
+                                            <strong>SR#</strong>
+                                        </td>
+                                        <td style="width: 70%;">
+                                            <strong>ITEM NAME</strong>
+                                        </td>
+                                        <td style="width: 15%;" class="text-right">
+                                            <strong>QTY</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="width:100%;">
+                                            <hr style="border: 1px solid black;" />
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="detail-section-skusCancel2" style="font-family: Arial; font-size: 16px;font-weight:bold;"></tbody>
+                            </table>
+                            <div id="divLess2" style="font-size: 14px;text-transform: capitalize;font-weight:bold;margin: 5px;">
+                            </div>
+                            <table style="width: 100%" id="tblLessItem2">
+                                <thead>
+                                    <tr style="font-family: Arial; font-size: 16px; height: 40%;">
+                                        <td style="width: 15%;">
+                                            <strong>SR#</strong>
+                                        </td>
+                                        <td style="width: 70%;">
+                                            <strong>ITEM NAME</strong>
+                                        </td>
+                                        <td style="width: 15%;" class="text-right">
+                                            <strong>QTY</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="width:100%;">
+                                            <hr style="border: 1px solid black;" />
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody id="detail-section-skusLess2" style="font-family: Arial; font-size: 16px;font-weight:bold;"></tbody>
+                            </table>
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h5>
+                                        <label id="lblOrderNotes22">
+                                        </label>
+                                    </h5>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr style="border: 1px dashed  black;" />
+                    </td>
+                </tr>
+            </table>            
+        </div>
+    </div>
+    <br />
+    <br />
+</div>

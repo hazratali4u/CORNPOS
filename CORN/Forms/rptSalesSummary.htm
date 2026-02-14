@@ -1,0 +1,248 @@
+﻿<div class="col-md-12" style="display: none;">
+    <div id="sales-summary-report">
+        <style type="text/css">
+            .sales-summary {
+                margin-top: 15px;
+                margin-left: 2px;
+                width: 3.2in;
+            }
+
+            .sales-summary-table tr {
+                height: 30px;
+            }
+        </style>
+        <div class="sales-summary">
+            <div class="col-md-12" style="text-align:left;  background-color:silver !important">
+                <strong> Print DateTime: </strong><span id="DateTimeSummary">Hassan</span>
+            </div>
+            <div class="col-md-12" align="center">
+                <h3 id="location-name-sales-summary">TL</h3>
+                <label style="font-size: 10px;" id="lblAddress"></label><br />
+                <strong> Date: </strong><span id="current-work-date-sales-summary">19-November-2014</span><br />
+                <strong> Cashier: </strong><span id="cashierSummary">Hassan</span>
+                <h4>
+                    Daily Sales Summary
+                </h4>
+                <hr style="border: #333333 solid 1px;" />
+            </div>
+            <div class="col-md-12">
+                <table align="center" class="sales-summary-table">
+                    <tr>
+                        <td style="width:1.5in;">
+                            <strong>No Of Invoices </strong>
+                        </td>
+                        <td>
+                            <span id="No-Invoices">0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:1.5in;">
+                            <strong>Gross Sales  </strong>
+                        </td>
+                        <td>
+                            <span id="g-sale">121</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Discount  </strong>
+                        </td>
+                        <td>
+                            <span id="discount-amount">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="gst-text"><strong>G.S.T</strong></span>
+                        </td>
+                        <td>
+                            <span id="gst-amount">1212</span>
+                        </td>
+                    </tr>
+                    <tr id="ServiceRow">
+                        <td>
+                            <span id="service-text"><strong>Service Charges</strong></span>
+                        </td>
+                        <td>
+                            <span id="service-amount">1212</span>
+                        </td>
+                    </tr>
+                    <tr style="display:none;">
+                        <td>
+                            <strong>Total Value  </strong>
+                        </td>
+                        <td>
+                            <span id="totalAmount">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Net Amount  </strong>
+                        </td>
+                        <td>
+                            <span id="net-amount">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Credit Card Sales  </strong>
+                        </td>
+                        <td>
+                            <span id="credit-card-sales">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Credit Sales  </strong>
+                        </td>
+                        <td>
+                            <span id="credit-sales">0</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <table align="center" class="sales-summary-table">
+                    <tbody id="delivery-channel-data"></tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <table align="center" class="sales-summary-table">
+                    <tr>
+                        <td style="width:1.5in;">
+                            <strong>Cash Sales  </strong>
+                        </td>
+                        <td>
+                            <span id="cash-sales">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:1.5in;">
+                            <strong>Sales Realization </strong>
+                        </td>
+                        <td>
+                            <span id="cash-realiz">0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:1.5in;">
+                            <strong>Advance Realization </strong>
+                        </td>
+                        <td>
+                            <span id="advance-realiz">0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr style="border:#333333 solid 1px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:1.5in;">
+                            <strong>Cash Skimmed </strong>
+                        </td>
+                        <td>
+                            <span id="cash-skimmed">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Cash In Hand </strong>
+                        </td>
+                        <td>
+                            <span id="cash-in-hand">1212</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr style="border:#333333 solid 1px;" />
+                        </td>
+                    </tr>
+                    <tr id="trcomplimentary-sales">
+                        <td>
+                            <strong>Complimentary Sales </strong>
+                        </td>
+                        <td>
+                            <span id="complimentary-sales">0</span>
+                        </td>
+                    </tr>
+                    <tr id="trvoid-sales">
+                        <td>
+                            <strong>Void Sales </strong>
+                        </td>
+                        <td>
+                            <span id="void-sales">0</span>
+                        </td>
+                    </tr>
+                    <tr id="trvoid-order">
+                        <td>
+                            <strong>Void Order </strong>
+                        </td>
+                        <td>
+                            <span id="void-order">0</span>
+                        </td>
+                    </tr>
+                    <tr id="tritem-less">
+                        <td>
+                            <strong>Item Less </strong>
+                        </td>
+                        <td>
+                            <span id="item-less">0</span>
+                        </td>
+                    </tr>
+                    <tr id="tritem-cancel">
+                        <td>
+                            <strong>Item Cancel </strong>
+                        </td>
+                        <td>
+                            <span id="item-cancel">0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr style="border:#333333 solid 1px;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Covers </strong>
+                        </td>
+                        <td>
+                            <span id="rptSalesSummary-covers">100</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Average Check</strong>
+                        </td>
+                        <td>
+                            <span id="rptSalesSummary-averagecheck">100</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <hr style="border:#333333 solid 1px;" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12" align="center" id="realzSec">
+                <h4>
+                    Sales Realization Breakup
+                </h4>
+                <table class="sales-summary-table" id="cash-realization-data"></table>
+            </div>
+            <div class="col-md-12" align="center" id="complimentaryreasonSec">
+                <h4>
+                    Complimentary Sales Reason Wise
+                </h4>
+                <table class="sales-summary-table" id="complimentary-reason-data"></table>
+            </div>
+            <div class="col-md-12" align="center" id="dvsales-summary-discount">                
+                <table class="sales-summary-table" id="tbl-summary-discount"></table>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</div>

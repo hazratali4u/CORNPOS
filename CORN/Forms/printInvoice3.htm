@@ -1,0 +1,474 @@
+﻿<div style="display: none; width: 3.2in">
+    <div id="dvSaleInvoice3">
+        <style type="text/css">
+            #dvSaleInvoice3 {
+                width: 2.5in;
+            }
+
+            #SaleInvoice {
+                width: 2.5in;
+            }
+
+            #CompanyName {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            #SaleInvoiceText3 {
+                font-size: 14px;
+            }
+
+            #InvoiceDate3 {
+                font-weight: bold;
+            }
+
+            #CustomerType3 {
+                font-weight: bold;
+            }
+
+            #phoneNo {
+                font-weight: bold;
+            }
+
+            #hrSaleInvoiceHead {
+                border: #333333 solid 1px;
+            }
+
+            #invoiceDetail3 {
+                margin-top: 10px;
+            }
+
+            #invoiceDetailBody3 tr td {
+                border: #333333 solid 2px;
+                font-family: sans-serif;
+                font-size: 10px;
+                font-weight: normal;
+                padding: 5px;
+            }
+        </style>
+        <table id="SaleInvoice">
+            <tr>
+                <td colspan="2">
+                    <table align="center">
+                        <tr>
+                            <td class="logom2" style="width: 100%;">
+                                <img id="imgLogo23" runat="server" src="../images/watch.png" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <span style="font-size: 10px;">
+                        <label id="lblFacebkId">
+                        </label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="font-size: 16px; font-family: sans-serif; font-style: italic;">
+                    <label id="SaleInvoiceText3">
+                        Sale Invoice
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="font-style: italic; font-family: sans-serif; font-size: 9px;">
+                    <label id="CompanyAddress3" style="font-size: 10px;">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="font-style: italic; font-family: sans-serif; font-size: 9px;">
+                    <label id="CompanyNumber3" style="font-size: 10px;">
+
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <label id="InvoiceDate3">
+                        12-dec-2014 12:02 PM
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 40%;">
+                    <label id="CustomerType3">
+                        DINE IN
+                    </label>
+                </td>
+                <td align="right" style="width: 60%;">
+                    <label id="PayType3">
+                    </label>
+                </td>
+            </tr>
+            <tr id="trNTN3">
+                <td align="left" style="font-style: italic; font-size: 12px; margin-bottom: 5px; width: 30%">
+                    <label id="RegNo3" style="font-style: normal; font-size: 12px; display: none;"></label>
+                </td>
+                <td align="left" style="font-style: italic; font-size: 12px; margin-bottom: 5px; width: 70%;">
+                    <label id="spSTRN3" style="font-style: normal; font-size: 12px; display: none;"></label>
+                </td>
+            </tr>
+            <tr>
+                <!--Cashier-->
+                <td align="left" style="width: 100%" colspan="2">
+                    <span id="Cashier3" style="margin-left: 0%; font-size: 12px; font-style: normal;"></span>
+                </td>
+            </tr>
+            <tr>
+                <!--<OrderBooker and CoverTable-->
+                <td style="width:50%;">
+                    <span id="OrderTakerName3" style="font-size: 12px; display: none;"></span>
+                    <span id="OrderTaker3" style="font-style: normal; font-size: 12px;display: none;"></span>
+                </td>
+                <td style="width:50%;text-align:right;">
+                    <span id="CoverTable3" style="font-style: normal; font-size: 12px;font-weight:bold" />
+                </td>
+            </tr>
+            <tr>
+                <!--Customer Name and Address-->
+                <td align="left" style="width: 100%" colspan="2">
+                    <span id="CustomerDetail3" style="margin-left: 0%; font-size: 12px; font-style: normal; display: none;"></span>
+                </td>
+            </tr>
+            <tr id="trOrderNo3">
+                <td colspan="2" style="text-align: right">
+                    <span id="OrderInvoiceName3" style="font-size: 12px;">Order No:  </span>
+                    <span id="OrderInvoice3" style="margin-left: 2%; font-size: 12px; font-style: normal;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 100%" colspan="2">
+                    <span style="font-size: 12px;">Order Time:  </span>
+                    <span id="OrderTime3" style="margin-left: 2%; font-size: 12px; font-style: normal;"></span>
+                </td>
+            </tr>
+            <tr>
+                <!--Table No and Bill No-->
+                <td align="left" style="width: 60%">
+                    <span id="InvoiceTableName3" style="font-size: 12px; width: 15%; margin-bottom: 8px;"></span>
+                    <span id="InvoiceTable3" style="margin-left: 2%; font-size: 12px; font-style: normal;"></span>
+
+                </td>
+                <td style="width: 40%; text-align: right;">
+                    <span id="BillNoName3" style="font-size: 12px;">Bill No:</span>
+                    <span id="BillNo3" style="margin-left: 2%; font-style: normal; font-size: 12px;"></span>
+                </td>
+            </tr>
+            <tr id="trKOTNo3">
+                <td align="left" style="width: 100%">
+                    <span id="KOTNo3" style="font-size: 12px;">KOT No:  </span>
+                </td>
+            </tr>
+            <tr id="trTakeawayOrderNo3" style="display: none;">
+                <td colspan="2">
+                    <span id="spanTakeawayOrderNo3" style="font-size: 20px; font-weight: bold;">Order No:  </span>
+                </td>
+            </tr>
+            <tr>
+                <!--Product Detail-->
+                <td colspan="2">
+                    <table id="invoiceDetail3">
+                        <thead id="invoiceDetailHead3">
+                            <tr>
+                                <td style="text-align: left; font-size: 12px; font-family: sans-serif; width: 35%">
+                                    Item Name
+                                </td>
+                                <td align="center" style="font-size: 12px; font-family: sans-serif; width: 10%">
+                                    Qty
+                                </td>
+                                <td align="center" style="font-size: 12px; font-family: sans-serif; width: 10%">
+                                    Rate
+                                </td>
+                                <td id="tdDiscount3" align="center" style="font-size: 12px; font-family: sans-serif; width: 10%; display:none;">
+                                    Disc
+                                </td>
+                                <td id="tdGSTPer3" align="center" style="font-size: 12px; font-family: sans-serif; width: 10%; display:none;">
+                                    GST %
+                                </td>
+                                <td id="tdGSTValue3" align="center" style="font-size: 12px; font-family: sans-serif; width: 10%; display:none;">
+                                    GST
+                                </td>
+                                <td align="center" style="font-size: 12px; font-family: sans-serif; width: 15%">
+                                    Amount
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceDetailBody3"></tbody>
+                        <tfoot id="invoiceDetailFoot">
+                            <!--Calculation Detail-->
+                            <tr id="trTotal3">
+                                <td colspan="6" align="right" id="tdTotal3">
+                                    <label id="TotalValue-text3">
+                                        Total :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="TotalValue5">
+                                        6000
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="trTotal23" style="display: none;">
+                                <td colspan="6" align="right" id="tdTotal23">
+                                    <label id="TotalValue-text23">
+                                        Grand Total :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="TotalValue23">
+                                        6000
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="GstRow23" style="display: none;">
+                                <td colspan="6" align="right" id="tdGst23">
+                                    <label id="GST-text23">
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Gst-value23">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="GstRowCredit23" style="display: none;">
+                                <td colspan="6" align="right" id="tdGstCredit23">
+                                    <label id="GST-textCredit23">
+
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Gst-valueCredit23">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="trExcusiveSalesTax3" style="display: none;">
+                                <td colspan="6" align="right" id="tdExclusiveTax3">
+                                    <label>
+                                        Amount Exclusive S.T
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="ExclusiveST-value3">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="DiscountRow3">
+                                <td colspan="6" align="right" id="tdDiscout3">
+                                    <label id="Discount-text3">
+                                        Discount :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Discount-value4">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="ServiceChargesRow3">
+                                <td colspan="6" align="right" id="tdServiceCharges3">
+                                    <label id="Service-text4">
+                                        Ser. Charges :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Service-value4">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>                            
+                            <tr id="NetTotal3">
+                                <td colspan="6" align="right" id="tdNetTotal3">
+                                    <label id="NetTotal-text3">
+                                        Net Total :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="NetTotal-value3">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="GstRow3">
+                                <td colspan="6" align="right" id="tdGst3">
+                                    <label id="GST-text3">
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Gst-value4">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="GstRowCredit3" style="display: none;">
+                                <td colspan="6" align="right" id="tdGstCredit3">
+                                    <label id="GST-textCredit3">
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Gst-valueCredit4">
+                                        0
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="POSFeeRow3" style="display:none;">
+                                <td colspan="6" align="right" id="tdPOSFee3">
+                                    <label style="font-size: 12px; font-weight: bold; font-family: sans-serif;">POS Fee:</label>
+                                </td>
+                                <td align="right">
+                                    <label id="POSFee-value3" style="font-size: 12px; font-weight: bold; font-family: sans-serif;">0</label>
+                                </td>
+                            </tr>
+                            <tr id="GrandTotalRow3">
+                                <td colspan="6" align="right" id="tdGrandTotal3">
+                                    <label id="GrandTotal-text3">
+                                        Grand Total :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="GrandTotal-value5">0</label>
+                                </td>
+                            </tr>
+                            <tr id="rowAdvance3">
+                                <td colspan="6" align="right" id="tdAdvancepayment3">
+                                    <label id="Advancepayment-text3">
+                                        Grand Total :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="Advancepayment-value3">0</label>
+                                </td>
+                            </tr>
+                            <tr id="GrandTotalRow23" style="display: none;">
+                                <td colspan="6" align="right" id="tdGrandTotal23">
+                                    <label id="GrandTotal-text23">
+                                        Amount after Disc. :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="GrandTotal-value23">0</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdPaymentIn3">
+                                    <label id="PayIn-text3">
+                                        Payment IN :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="PayIn-value3">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdChange3">
+                                    <label id="balance-text3">
+                                        Change :
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="balance-value3">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdBalance3">
+                                    <label id="balance-text23">
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="balance-value23">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdAdvance3">
+                                    <label id="advance-text3">
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="advance-value3">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdAdvanceBalance3">
+                                    <label id="AdvanceBalance-text3">
+                                    </label>
+                                </td>
+                                <td align="right">
+                                    <label id="AdvanceBalance-value3">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="trGSTInfo3" style="display:none;">
+                                <td colspan="7" style="font-size: 12px;">
+                                    <label id="lblGSTInfo3"></label>
+                                </td>
+                            </tr>
+                            <tr id="trFBRInvoicePRA3" style="display: none;">
+                                <td colspan="7">
+                                    <label id="FBRInvoiceNoPRA3">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="trQRImagePRA3" style="display: none">
+                                <td colspan="3">
+                                    <img id="imgQrCodePRA3" src="" height="100" width="100">
+                                </td>
+                                <td colspan="4">
+                                    <img id="imgpra3" src="../images/logopra.jpg" height="100" width="100" style="display: none;">
+                                </td>
+                            </tr>
+                            <tr id="trFBRInvoiceFBR3" style="display: none;">
+                                <td colspan="7">
+                                    <label id="FBRInvoiceNoFBR3">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr id="trQRImageFBR3" style="display: none">
+                                <td colspan="3">
+                                    <img id="imgQrCodeFBR3" src="" height="100" width="100">
+                                </td>
+                                <td colspan="4">
+                                    <img id="imgfbr3" src="../images/logofbr.jpg" height="100" width="100" style="display: none;">
+                                </td>
+                            </tr>
+                            <tr id="trOrderNotes3">
+                                <td colspan="7" style="font-size: 10px;">
+                                    <label id="lblOrderNotes3"></label>
+                                </td>
+                            </tr>                            
+                            <tr id="trCardAccountTitle3" style="display:none;">
+                                <td colspan="1" style="font-size: 12px;">
+                                    <label id="lblCreditCardNo3">Card No:12345</label>
+                                </td>
+                                <td colspan="6" style="font-size: 12px;">
+                                    <label id="lblAccountTitle3">Acc. Title: Ali</label>
+                                </td>
+                            </tr>
+                            <tr id="trDiscReason3">
+                                <td colspan="7" style="font-size: 10px;">
+                                    <label id="lblDiscReason3"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" style="font-size: 10px;">
+                                    <label style="font-size: 10px;" id="lblDelChannel3"></label>
+                                    <hr style="border: 1px solid black;" />
+                                    <label ID="ltrlSlipNote3"></label>
+                                    <label style="font-size: 10px;" id="lblComapnyEmail"></label>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

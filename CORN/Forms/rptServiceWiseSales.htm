@@ -1,0 +1,133 @@
+﻿<div class="col-md-12" style="display: none;">
+    <div id="service-wise-report">
+        <style type="text/css">
+            .service-wise-sales {
+                margin-top: 10px;
+                margin-left: 2px;
+                width: 3.2in;
+            }
+
+            .service-wise-sales-table tr {
+                height: 25px;
+            }
+        </style>
+        <div class="service-wise-sales">
+            <div class="col-md-12" align="center">
+                <h4>
+                    Service Wise Sales Report
+                </h4>
+                <strong>Date & Time: </strong><span id="current-work-date-service-wise-sales">19-November-2014</span>
+                <br />
+                <strong>Location: </strong><span id="location-name-service-wise-sales">Location</span>
+                <br />
+                <strong> User: </strong><span id="cashierservice-wise-sales">Hassan</span>
+            </div>
+            <hr style="border: #333333 solid 1px;" />
+            <table style="width:100%;" cellpadding="10" cellspacing="10">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="2">Dine In</td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">No Of Invoices: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-dine-no-of-invoices"></span> </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">No Of Guests: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-dine-no-of-guests"></span> </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">Average Per Invoice: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-dine-avg-per-invoice">0</span> </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">Average Per Guests: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-dine-avg-per-guest">0</span> </td>
+                </tr>
+            </table>
+            <table style="width:100%;margin-top:10px;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="2">Delivery</td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">No Of Invoices: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-delivery-no-of-invoices">0</span> </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">Average Per Invoice: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-delivery-avg-per-invoice">0</span> </td>
+                </tr>
+            </table>
+            <table style="width:100%;margin-top:10px;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="2">Takeaway</td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">No Of Invoices: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-takeaway-no-of-invoices">0</span> </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">Average Per Invoice: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-takeaway-avg-per-invoice">0</span> </td>
+                </tr>
+            </table>
+            <hr style="border: #333333 solid 1px;" />
+            <table style="width:100%;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="3">Third Party Delivery</td>
+                </tr>
+                <tbody id="service-type-delivery-channel-data" style="width:100%;">                    
+                </tbody>
+            </table>
+            <hr style="border: #333333 solid 1px;" />
+            <table style="width:100%;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="3">Discount Breakup</td>
+                </tr>
+                <tbody id="service-type-discount-data" style="width:100%;"></tbody>
+            </table>
+            <hr style="border: #333333 solid 1px;" />
+            <table style="width:100%;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="3">Payment Mode</td>
+                </tr>
+                <tbody id="service-type-payment-mode" style="width:100%;"></tbody>
+            </table>
+            <hr style="border: #333333 solid 1px;" />
+            <table style="width:100%;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="3">GST Breakup</td>
+                </tr>
+                <tbody id="service-type-gst-data" style="width:100%;"></tbody>
+            </table>
+            <hr style="border: #333333 solid 1px;" />
+            <table style="width:100%;">
+                <tr style="background-color:black !important;">
+                    <td style="width:100%;color:white !important;font-weight:bold;" align="center" colspan="2">Summary</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #333333;">
+                    <td style="width:50%;">Total No Of Invoices: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-total-no-of-invoices">0</span> </td>
+                </tr>
+            </table>
+            <table style="width:100%;">
+                <tr style="border-bottom: 1px solid #333333;">
+                    <td style="width:50%;">Total Gross Sales: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-total-gross-sales">0</span> </td>
+                </tr>
+            </table>
+            <table style="width:100%;padding:0px;">
+                <tr style="border-bottom: 1px solid #333333;">
+                    <td style="width:50%;">Total Net Sales: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-total-net-sales">0</span> </td>
+                </tr>
+            </table>
+            <table style="width:100%;padding:0px;">
+                <tr style="border-bottom: 1px solid #333333;">
+                    <td style="width:50%;">Total Tax: </td>
+                    <td style="width:50%;" align="right"> <span id="service-type-total-tax">0</span> </td>
+                </tr>
+            </table>
+            <hr style="border: #333333 solid 1px;" />            
+        </div>
+    </div>
+</div>

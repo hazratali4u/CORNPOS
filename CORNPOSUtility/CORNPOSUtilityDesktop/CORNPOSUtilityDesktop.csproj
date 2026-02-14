@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8415B79D-2427-4AE7-A1E1-9E8A02293186}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CORNPOSUtilityDesktop</RootNamespace>
+    <AssemblyName>CORNPOSUtilityDesktop</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cryptography.cs" />
+    <Compile Include="Form\frmAllowInsight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmAllowInsight.designer.cs">
+      <DependentUpon>frmAllowInsight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmAppSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmAppSetting.designer.cs">
+      <DependentUpon>frmAppSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmDataManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmDataManagement.designer.cs">
+      <DependentUpon>frmDataManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmEncryptDecrypt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmEncryptDecrypt.designer.cs">
+      <DependentUpon>frmEncryptDecrypt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmInsertDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmInsertDay.designer.cs">
+      <DependentUpon>frmInsertDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmRemoveModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmRemoveModule.designer.cs">
+      <DependentUpon>frmRemoveModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmScript.designer.cs">
+      <DependentUpon>frmScript.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmTruncateData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmTruncateData.designer.cs">
+      <DependentUpon>frmTruncateData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmUpdateBuild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmUpdateBuild.designer.cs">
+      <DependentUpon>frmUpdateBuild.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmUpdateLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmUpdateLicense.designer.cs">
+      <DependentUpon>frmUpdateLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControl\FirstMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\FirstMenu.designer.cs">
+      <DependentUpon>FirstMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ZKMessgeBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl\ZKMessgeBox.Designer.cs">
+      <DependentUpon>ZKMessgeBox.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\frmAllowInsight.resx">
+      <DependentUpon>frmAllowInsight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmAppSetting.resx">
+      <DependentUpon>frmAppSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmDataManagement.resx">
+      <DependentUpon>frmDataManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmEncryptDecrypt.resx">
+      <DependentUpon>frmEncryptDecrypt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmInsertDay.resx">
+      <DependentUpon>frmInsertDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmRemoveModule.resx">
+      <DependentUpon>frmRemoveModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmScript.resx">
+      <DependentUpon>frmScript.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmTruncateData.resx">
+      <DependentUpon>frmTruncateData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmUpdateBuild.resx">
+      <DependentUpon>frmUpdateBuild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmUpdateLicense.resx">
+      <DependentUpon>frmUpdateLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UserControl\FirstMenu.resx">
+      <DependentUpon>FirstMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ZKMessgeBox.resx">
+      <DependentUpon>ZKMessgeBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="image\close.png" />
+    <Content Include="image\delete-circular.png" />
+    <Content Include="image\FirstMenuM.png" />
+    <Content Include="image\home-vector.png" />
+    <Content Include="image\minisize.png" />
+    <Content Include="image\photoAdd.png" />
+    <Content Include="image\photoDel.png" />
+    <Content Include="image\reload-vector.png" />
+    <Content Include="image\remove-circular.png" />
+    <Content Include="image\settings-vector.png" />
+    <Content Include="image\unlock-vector.png" />
+    <Content Include="image\update-vector.png" />
+    <Content Include="image\ZKTeco_Gray-White.png" />
+    <Content Include="Resources\ZKTeco_Gray_White.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

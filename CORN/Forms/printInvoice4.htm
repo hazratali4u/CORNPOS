@@ -1,0 +1,495 @@
+﻿<div style="display: none; width: 3.2in">
+    <div id="dvSaleInvoice4">
+        <style type="text/css">
+            #dvSaleInvoice4 {
+                width: 2.5in;
+            }
+
+            #SaleInvoice {
+                width: 2.5in;
+            }
+
+            #CompanyName {
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            #LocationName4 {
+                font-size: 14px;
+            }
+
+            #CustomerType4 {
+                font-weight: bold;
+            }
+
+            #phoneNo {
+                font-weight: bold;
+            }
+
+            #hrSaleInvoiceHead {
+                border: #333333 solid 1px;
+            }
+
+            #invoiceDetail4 {
+                margin-top: 5px;
+            }
+
+            #invoiceDetailBody4 tr td {
+                font-family: sans-serif;
+                font-size: 10px;
+                font-weight: normal;
+                padding: 5px;
+            }
+
+            #GrandTotal-value {
+                font-weight: bold;
+            }
+        </style>
+        <table id="SaleInvoice">
+            <tr>
+                <td colspan="2">
+                    <table align="center">
+                        <tr>
+                            <td class="logom2" style="width: 100%;">
+                                <img id="imgLogo24" runat="server" src="../images/watch.png" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <span style="font-size: 10px;">
+                        <label id="lblFacebkId4">
+                        </label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <span id="SaleInvoiceText4" style="font-size: 12px; font-style: normal;">
+                        Sale Invoice
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" style="font-size: 16px; font-family: sans-serif; font-style: normal;">
+                    <label id="LocationName4">
+                        Location Name
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <span id="CompanyAddress4" style="font-style: normal; font-size: 9px;">
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <span id="CompanyNumber4" style="font-style: normal; font-family: sans-serif; font-size: 9px;">
+                        0300-0000000
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 30%">
+                    <span id="RegNo4" style="font-style: normal; font-size: 12px; display: none;"></span>
+                </td>
+                <td align="left" style="width: 70%;">
+                    <span id="spSTRN4" style="font-style: normal; font-size: 12px; display: none;"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <hr style="border: 1px solid black;margin:2;" />
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 60%">
+                    <span id="CustomerDetail4" style="margin-left: 0%; font-size: 12px; font-style: normal; display: none;"></span>
+
+                </td>
+                <td style="width: 40%; text-align: right;">
+                    <span id="CustomerPhoneNo" style="margin-left: 0%; font-size: 12px; font-style: normal;">
+
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 100%" colspan="2">
+                    <span id="CustomerAddress" style="margin-left: 0%; font-size: 12px; font-style: normal; display: none;"></span>
+
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 60%">
+                    <span id="PayType4" style="margin-left: 0%; font-size: 12px; font-style: normal;">
+                    </span>
+
+                </td>
+                <td style="width: 40%; text-align: right;">
+                    <span id="CR01" style="margin-left: 0%; font-size: 12px; font-style: normal;">
+                        CR: 01
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 60%">
+                    <span id="BillNo4" style="margin-left: 2%; font-style: normal; font-size: 12px;"></span>
+                </td>
+                <td style="width: 40%; text-align: right;">
+                    <span id="InvoiceDate4" style="margin-left: 0%; font-size: 12px; font-style: normal;">
+                        12-dec-2014
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 60%">
+                    <span style="font-size: 12px;">Order Time:  </span>
+                    <span id="OrderTime4" style="margin-left: 2%; font-size: 12px; font-style: normal;"></span>
+                </td>
+                <td style="width: 40%; text-align: right;">
+                    <span id="OrderInvoiceName4" style="font-size: 12px;">Order No:  </span>
+                    <span id="OrderInvoice4" style="margin-left: 2%; font-size: 12px; font-style: normal;"></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="width: 60%">
+                    <label id="CustomerType4">
+                        DINE IN
+                    </label>
+                </td>
+                <td style="width: 40%; text-align: right;">
+                    <input type="hidden" id="hfDeliveryChannel4" />
+                    <label id="DeliveryChannel4" style="font-weight:normal;">
+
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr style="border: 1px solid black;margin:2;" />
+                </td>
+            </tr>
+            <tr style="display:none">
+                <!--Cashier-->
+                <td align="left" style="width: 100%" colspan="2">
+                    <span id="Cashier4" style="margin-left: 0%; font-size: 12px; font-style: normal;"></span>
+                </td>
+            </tr>
+            <tr style="display:none">
+                <!--<OrderBooker and CoverTable-->
+                <td style="width:50%;">
+                    <span id="OrderTakerName4" style="font-size: 12px; display: none;"></span>
+                    <span id="OrderTaker4" style="font-style: normal; font-size: 12px;display: none;"></span>
+                </td>
+                <td style="width:50%;text-align:right;">
+                    <span id="CoverTable4" style="font-style: normal; font-size: 12px;font-weight:bold" />
+                </td>
+            </tr>
+            <tr style="display:none">
+                <!--Table No and Bill No-->
+                <td align="left" style="width: 60%">
+                    <span id="InvoiceTableName4" style="font-size: 12px; width: 15%; margin-bottom: 8px;"></span>
+                    <span id="InvoiceTable4" style="margin-left: 2%; font-size: 12px; font-style: normal;"></span>
+
+                </td>
+                <td style="width: 40%; text-align: right;"></td>
+            </tr>
+            <tr id="trKOTNo4" style="display:none">
+                <td align="left" style="width: 100%">
+                    <span id="KOTNo4" style="font-size: 12px;">KOT No:  </span>
+                </td>
+            </tr>
+            <tr id="trTakeawayOrderNo4" style="display: none;">
+                <td colspan="2">
+                    <span id="spanTakeawayOrderNo4" style="font-size: 20px; font-weight: bold;">Order No:  </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table id="invoiceDetail4">
+                        <thead id="invoiceDetailHead4">
+                            <tr>
+                                <td style="text-align: left; font-size: 12px; font-family: sans-serif; width: 35%">
+                                    Item Name
+                                </td>
+                                <td align="center" style="font-size: 12px; font-family: sans-serif; width: 10%">
+                                    Qty
+                                </td>
+                                <td align="center" style="font-size: 12px; font-family: sans-serif; width: 10%">
+                                    Rate
+                                </td>
+                                <td id="tdDiscount4" align="center" style="font-size: 12px; font-family: sans-serif; width: 10%; display:none;">
+                                    Disc
+                                </td>
+                                <td id="tdGSTPer4" align="center" style="font-size: 12px; font-family: sans-serif; width: 10%; display:none;">
+                                    GST %
+                                </td>
+                                <td id="tdGSTValue4" align="center" style="font-size: 12px; font-family: sans-serif; width: 10%; display:none;">
+                                    GST
+                                </td>
+                                <td align="center" style="font-size: 12px; font-family: sans-serif; width: 15%">
+                                    Amount
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <hr style="border: 1px solid black;margin:2;" />
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="invoiceDetailBody4"></tbody>
+                        <tfoot id="invoiceDetailFoot">
+                            <!--Calculation Detail-->
+                            <tr>
+                                <td colspan="7">
+                                    <hr style="border: 1px solid black;margin:2;" />
+                                </td>
+                            </tr>
+                            <tr id="trTotal4">
+                                <td colspan="6" align="right" id="tdTotal4">
+                                    <span id="TotalValue-text4" style="font-size: 12px; font-style: normal;">
+                                        Total :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="TotalValue6" style="font-size: 12px; font-style: normal;">
+                                        6000
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="trTotal24" style="display: none;">
+                                <td colspan="6" align="right" id="tdTotal24">
+                                    <span id="TotalValue-text24" style="font-size: 12px; font-style: normal;">
+                                        Grand Total :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="TotalValue24" style="font-size: 12px; font-style: normal;">
+                                        6000
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="GstRow24" style="display: none;">
+                                <td colspan="6" align="right" id="tdGst24">
+                                    <span id="GST-text24" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Gst-value24" style="font-size: 12px; font-style: normal;">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="GstRowCredit24" style="display: none;">
+                                <td colspan="6" align="right" id="tdGstCredit24">
+                                    <span id="GST-textCredit24" style="font-size: 12px; font-style: normal;">
+
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Gst-valueCredit24" style="font-size: 12px; font-style: normal;">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="trExcusiveSalesTax4" style="display: none;">
+                                <td colspan="6" align="right" id="tdExclusiveTax4">
+                                    <span style="font-size: 12px; font-style: normal;">
+                                        Amount Exclusive S.T
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="ExclusiveST-value4" style="font-size: 12px; font-style: normal;">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="DiscountRow4">
+                                <td colspan="6" align="right" id="tdDiscout4">
+                                    <span id="Discount-text4" style="font-size: 12px; font-style: normal;">
+                                        Discount :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Discount-value5" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="ServiceChargesRow4">
+                                <td colspan="6" align="right" id="tdServiceCharges4">
+                                    <span id="Service-text5" style="font-size: 12px; font-style: normal;">
+                                        Ser. Charges :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Service-value6" style="font-size: 12px; font-style: normal;">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="GstRow4">
+                                <td colspan="6" align="right" id="tdGst4">
+                                    <span id="GST-text4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Gst-value5" style="font-size: 12px; font-style: normal;">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="GstRowCredit4" style="display: none;">
+                                <td colspan="6" align="right" id="tdGstCredit4">
+                                    <span id="GST-textCredit4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Gst-valueCreditSaj" style="font-size: 12px; font-style: normal;">
+                                        0
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="POSFeeRowSaj" style="display:none;">
+                                <td colspan="6" align="right" id="tdPOSFeeSaj">
+                                    <label style="font-size: 12px; font-weight: normal; font-family: sans-serif;">POS Fee:</label>
+                                </td>
+                                <td align="right">
+                                    <label id="POSFee-valueSaj" style="font-size: 12px; font-weight: normal; font-family: sans-serif;">0</label>
+                                </td>
+                            </tr>
+                            <tr id="GrandTotalRow4">
+                                <td colspan="6" align="right" id="tdGrandTotal4">
+                                    <span id="GrandTotal-text4" style="font-size: 12px; font-style: normal;">
+                                        Grand Total :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="GrandTotal-value6" style="font-size: 12px; font-style: normal;">0</span>
+                                </td>
+                            </tr>
+                            <tr id="rowAdvance4">
+                                <td colspan="6" align="right" id="tdAdvancepayment4">
+                                    <span id="Advancepayment-text4" style="font-size: 12px; font-style: normal;">
+                                        Grand Total :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="Advancepayment-value4" style="font-size: 12px; font-style: normal;">0</span>
+                                </td>
+                            </tr>
+                            <tr id="GrandTotalRow24" style="display: none;">
+                                <td colspan="6" align="right" id="tdGrandTotal24">
+                                    <span id="GrandTotal-text24" style="font-size: 12px; font-style: normal;">
+                                        Amount after Disc. :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="GrandTotal-value24" style="font-size: 12px; font-style: normal;">0</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdPaymentIn4">
+                                    <span id="PayIn-text4" style="font-size: 12px; font-style: normal;">
+                                        Payment IN :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="PayIn-value4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdChange4">
+                                    <span id="balance-text4" style="font-size: 12px; font-style: normal;">
+                                        Change :
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="balance-value4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdBalance4">
+                                    <span id="balance-text24" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="balance-value24" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdAdvance4">
+                                    <span id="advance-text4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="advance-value4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" align="right" id="tdAdvanceBalance4">
+                                    <span id="AdvanceBalance-text4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span id="AdvanceBalance-value4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="trFBRInvoice4" style="display: none;">
+                                <td colspan="7">
+                                    <span id="FBRInvoiceNo4" style="font-size: 12px; font-style: normal;">
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr id="trQRImage4" style="display: none">
+                                <td colspan="7">
+                                    <img id="imgQrCode4" src="" height="100" width="100">
+                                </td>
+                            </tr>
+                            <tr id="trOrderNotes4">
+                                <td colspan="7" style="font-size: 10px;">
+                                    <span id="lblOrderNotes4" style="font-size: 12px; font-style: normal;"></span>
+                                </td>
+                            </tr>
+                            <tr id="trGSTInfo4" style="display:none;">
+                                <td colspan="7">
+                                    <span id="lblGSTInfo4" style="font-size: 12px; font-style: normal;"></span>
+                                </td>
+                            </tr>
+                            <tr id="trCardAccountTitle4" style="display:none;">
+                                <td colspan="1" style="font-size: 12px;">
+                                    <span id="lblCreditCardNo4" style="font-size: 12px; font-style: normal;"></span>
+                                </td>
+                                <td colspan="6" style="font-size: 12px;">
+                                    <span id="lblAccountTitle4" style="font-size: 12px; font-style: normal;"></span>
+                                </td>
+                            </tr>
+                            <tr id="trDiscReason4">
+                                <td colspan="7" style="font-size: 10px;">
+                                    <span id="lblDiscReason4" style="font-size: 12px; font-style: normal;"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" style="font-size: 10px;">
+                                    <span id="lblDelChannel4" style="font-size: 12px; font-style: normal;"></span>
+                                    <hr style="border: 1px solid black;" />
+                                    <span ID="ltrlSlipNote4" style="font-size: 12px; font-style: normal;"></span>
+                                    <br />
+                                    <span id="lblComapnyEmail4" style="font-size: 12px; font-style: normal;"></span>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

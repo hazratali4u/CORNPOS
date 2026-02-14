@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SAMSAndroid.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="uspGetUSERSAndroid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOGIN_ID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="SAMSAndroidStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SAMSAndroid" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbSAMSAndroidEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="uspGetUSERSAndroid" ReturnType="Collection(SAMSAndroid.uspGetUSERSAndroid_Result)">
+            <Parameter Name="LOGIN_ID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="uspGetUSERSAndroid_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="DistributionID" Nullable="false" />
+          <Property Type="Int32" Name="DistributorTypeID" Nullable="false" />
+          <Property Type="String" Name="UserLogin" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="UserPassword" Nullable="true" MaxLength="35" />
+          <Property Type="Int32" Name="IsDistributorRegister" Nullable="false" />
+          <Property Type="Int32" Name="RoleID" Nullable="true" />
+          <Property Type="String" Name="DistributorName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="OTPicturesManadatory" Nullable="false" />
+          <Property Type="Boolean" Name="IsEncrypted" Nullable="false" />
+          <Property Type="String" Name="EncryptKey" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="WorkingDate" Nullable="false"/>
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SAMSAndroidStoreContainer" CdmEntityContainer="dbSAMSAndroidEntities" >
+          <FunctionImportMapping FunctionImportName="uspGetUSERSAndroid" FunctionName="SAMSAndroid.Store.uspGetUSERSAndroid">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SAMSAndroid.uspGetUSERSAndroid_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DistributionID" ColumnName="DistributionID" />
+                <ScalarProperty Name="DistributorTypeID" ColumnName="DistributorTypeID" />
+                <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="IsDistributorRegister" ColumnName="IsDistributorRegister" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="OTPicturesManadatory" ColumnName="OTPicturesManadatory" />
+                <ScalarProperty Name="IsEncrypted" ColumnName="IsEncrypted" />
+                <ScalarProperty Name="EncryptKey" ColumnName="EncryptKey" />
+                <ScalarProperty Name="WorkingDate" ColumnName="WorkingDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
