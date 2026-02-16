@@ -757,6 +757,13 @@ function LoadPendingBill(products) {
                 DiscType(document.getElementById("percentage2"));
             }
         }
+
+        if (products[0].CUSTOMER_TYPE_ID == 2) {
+            $("#hfCustomerType").val('Delivery');
+        }
+        else {
+            $("#hfCustomerType").val('Takeaway');
+        }
     }
     $("#tble-ordered-products").empty();    
     $('#hfCustomerGroup').val(0);    
@@ -1317,15 +1324,13 @@ function activeLink() {
    $("#lnkTakeaway").removeClass("active");
     $("#lnkDelivery").removeClass("active");
 
-    if ($("#TableNo1").text() == "DLY") {
+    if ($("#hfCustomerType").val() == "Delivery") {
         $("#lnkDelivery").addClass("active");
         document.getElementById("hfCustomerType").value = "Delivery";
 
-    } else if ($("#TableNo1").text() == "TKY") {
-
+    } else if ($("#hfCustomerType").val() == "Takeaway") {
         $("#lnkTakeaway").addClass("active");
         document.getElementById("hfCustomerType").value = "Takeaway";
-
     }
 }
 

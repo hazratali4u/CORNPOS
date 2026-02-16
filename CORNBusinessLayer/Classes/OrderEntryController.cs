@@ -893,38 +893,7 @@ namespace CORNBusinessLayer.Classes
                                 mSaleInvoiceDetail.DISCOUNTDeal = 0;
                             }
                             mSaleInvoiceDetail.DealName = dr["DEAL_NAME"].ToString();
-                            mSaleInvoiceDetail.ExecuteQuery();
-
-                            //string MODIFIER = "0";
-                            //try
-                            //{
-                            //    MODIFIER = dr["MODIFIER"].ToString();
-                            //}
-                            //catch (Exception)
-                            //{
-                            //    MODIFIER = "0";
-                            //}
-                            //if (MODIFIER == "0")
-                            //{
-                                //string Modifiers = string.Empty;
-                                //foreach (DataRow drModifierChild in dtInvoiceDetail.Rows)
-                                //{
-                                //    if (drModifierChild["MODIFIER_PARENT_ID"].ToString() != "0")
-                                //    {
-                                //        if (drModifierChild["MODIFIER_PARENT_ID"].ToString() == dr["SKU_ID"].ToString() && drModifierChild["ModifierParetn_Row_ID"].ToString() == dr["ModifierParetn_Row_ID"].ToString())
-                                //        {
-                                //            Modifiers += drModifierChild["SKU_NAME"].ToString();
-                                //            Modifiers += "<br>";
-                                //        }
-                                //    }
-                                //}
-                                //byte KOTType = 1;//1=NewKOT, 2=NewItem,3=Increase Qty,4=Decrease Qty,5=Calncel Item
-                                //InsertKOTDetail(KOTType, pDistributorId, SALE_INVOICE_ID, mSaleInvoiceDetail.SALE_INVOICE_DETAIL_ID, Convert.ToInt32(dtInvoice.Rows[0]["ORDER_NO"])
-                                //  , dr["SECTION"].ToString(), pCustomerTypeId.ToString(), pTableId.ToString(), pOrderbookerId,pREMARKS, mSaleInvoiceDetail.SKU_ID
-                                //  , mSaleInvoiceDetail.QTY, dr["DEAL_NAME"].ToString(), mSaleInvoiceDetail.DealQTY, mSaleInvoiceDetail.ORDER_NOTES, Modifiers
-                                //  , "", mSaleInvoiceDetail.TIME_STAMP2.ToString("yyyyMMddHHmmssfff"), Convert.ToDateTime(dtInvoice.Rows[0]["LASTUPDATE_DATE"]).ToString("yyyyMMddHHmmssfff"),DateTime.Now.ToString("yyyyMMddHHmmssfff"), mSaleInvoiceDetail.ModifierParetn_Row_ID
-                                //  , mISom.USER_ID, mConnection, mTransaction);
-                            //}
+                            mSaleInvoiceDetail.ExecuteQuery();                            
                             if (KDSImplemented)
                             {
                                 spInsertSALE_INVOICE_DETAIL3 detailLast = new spInsertSALE_INVOICE_DETAIL3();
@@ -1224,22 +1193,6 @@ namespace CORNBusinessLayer.Classes
                             }
                             if (skuId == mSaleInvoiceDetail.SKU_ID && SaleInvoiceDetailID == SaleInvoiceDetailID2)
                             {         
-                                //if(qty1 == mSaleInvoiceDetail.QTY)
-                                //{
-                                //    KOTType = 0;
-                                //}
-                                //else if(qty1 < mSaleInvoiceDetail.QTY)
-                                //{
-                                //    KOTType = 3;
-                                //    KOTQty = mSaleInvoiceDetail.QTY - qty1;
-                                //    KOTDealQty = mSaleInvoiceDetail.DealQTY - dealqty1;
-                                //}
-                                //else if (qty1 > mSaleInvoiceDetail.QTY)
-                                //{
-                                //    KOTType = 4;
-                                //    KOTQty = qty1 - mSaleInvoiceDetail.QTY;
-                                //    KOTDealQty = dealqty1 - mSaleInvoiceDetail.DealQTY;
-                                //}
                                 if (qty1 != mSaleInvoiceDetail.QTY)
                                 {
                                     mSaleInvoiceDetail.LASTUPDATE_DATE = DateTime.Now;
@@ -1267,51 +1220,6 @@ namespace CORNBusinessLayer.Classes
                         mSaleInvoiceDetail.OldInvoiceJson = OldInvoiceJson;
                         mSaleInvoiceDetail.DealName = dr["DEAL_NAME"].ToString();
                         mSaleInvoiceDetail.ExecuteQuery();
-                        //if(newitem)
-                        //{
-                        //    KOTType = 2;
-                        //    KOTQty = mSaleInvoiceDetail.QTY;
-                        //    KOTDealQty = mSaleInvoiceDetail.DealQTY;
-                        //}
-                        //if(bool.Parse(dr["VOID"].ToString()))
-                        //{
-                        //    KOTType = 5;
-                        //    KOTQty = mSaleInvoiceDetail.QTY;
-                        //    KOTDealQty = mSaleInvoiceDetail.DealQTY;
-                        //}
-                        //if (KOTType != 0)
-                        //{
-                        //    string MODIFIER = "0";
-                        //    try
-                        //    {
-                        //        MODIFIER = dr["MODIFIER"].ToString();
-                        //    }
-                        //    catch (Exception)
-                        //    {
-                        //        MODIFIER = "0";
-                        //    }
-                        //    if (MODIFIER == "0")
-                        //    {
-                        //        string Modifiers = string.Empty;
-                        //        foreach (DataRow drModifierChild in dtInvoiceDetail.Rows)
-                        //        {
-                        //            if (drModifierChild["MODIFIER_PARENT_ID"].ToString() != "0")
-                        //            {
-                        //                if (drModifierChild["MODIFIER_PARENT_ID"].ToString() == dr["SKU_ID"].ToString() && drModifierChild["ModifierParetn_Row_ID"].ToString() == dr["ModifierParetn_Row_ID"].ToString())
-                        //                {
-                        //                    Modifiers += drModifierChild["SKU_NAME"].ToString();
-                        //                    Modifiers += "<br>";
-                        //                }
-                        //            }
-                        //        }
-
-                        //        InsertKOTDetail(KOTType, pDistributorId, pSaleInvoiceId, mSaleInvoiceDetail.SALE_INVOICE_DETAIL_ID, Constants.IntNullValue
-                        //          , dr["SECTION"].ToString(), pCustomerTypeId.ToString(), pTableId.ToString(), pOrderBookerId,pREMARKS, mSaleInvoiceDetail.SKU_ID
-                        //          , KOTQty, dr["DEAL_NAME"].ToString(), KOTDealQty, mSaleInvoiceDetail.ORDER_NOTES, Modifiers
-                        //          , "", mSaleInvoiceDetail.TIME_STAMP2.ToString("yyyyMMddHHmmssfff"),mSaleInvoiceDetail.LASTUPDATE_DATE.ToString("yyyyMMddHHmmssfff"), null, mSaleInvoiceDetail.ModifierParetn_Row_ID
-                        //          , pUserId, mConnection, mTransaction);
-                        //    }
-                        //}
                         if (mSaleInvoiceDetail.IS_VOID == false)
                         {
                             if (mSaleInvoiceDetail.IS_FREE == false)
