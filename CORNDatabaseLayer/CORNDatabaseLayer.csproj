@@ -121,6 +121,7 @@
     <Compile Include="InputClasses\Franchise_Sale_Invoice\spUpdateFRANCHISE_SALE_INVOICE_MASTER2.cs" />
     <Compile Include="InputClasses\Franchise_Sale_Invoice\spupdateFranchiseSaleInvoice_Master.cs" />
     <Compile Include="InputClasses\Franchise_Sale_Invoice\spSelectFRANCHISE_INVOICE_MASTER.cs" />
+    <Compile Include="InputClasses\SpSelectDiscountedSaleInvoicesExcel.cs" />
     <Compile Include="InputClasses\spUpdateCustomerAddress.cs" />
     <Compile Include="InputClasses\uspGetAccountChildren.cs" />
     <Compile Include="InputClasses\MaleesCafee\spInsertSALE_INVOICE_DETAILKOT.cs" />

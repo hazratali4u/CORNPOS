@@ -463,7 +463,7 @@ namespace CORNBusinessLayer.Classes
             {
                 mConnection = ProviderFactory.GetConnection(Configuration.ConnectionString, EnumProviders.SQLClient);
                 mConnection.Open();
-                SpSelectDiscountedSaleInvoices mDiscountSale = new SpSelectDiscountedSaleInvoices();
+                SpSelectDiscountedSaleInvoicesExcel mDiscountSale = new SpSelectDiscountedSaleInvoicesExcel();
                 mDiscountSale.Connection = mConnection;
                 mDiscountSale.DISTRIBUTOR_ID = p_distributer_id;
                 mDiscountSale.CASHIER_ID = p_Cashier_id;
