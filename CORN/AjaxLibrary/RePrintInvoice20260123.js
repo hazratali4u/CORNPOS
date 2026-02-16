@@ -776,11 +776,11 @@ function ReprintInvoice() {
             var amount = 0;
             if (product.T_PRICE.toString().indexOf(".") == -1) {
                 tprice = product.T_PRICE;
-                amount = parseFloat(product.AMOUNT) - parseFloat(product.DISCOUNT);
+                amount = parseFloat(product.AMOUNT) - parseFloat(product.DISCOUNTItemWise);
             }
             else {
                 tprice = parseFloat(product.T_PRICE).toFixed(2);
-                amount = parseFloat(product.AMOUNT - parseFloat(product.DISCOUNT)).toFixed(2);
+                amount = parseFloat(product.AMOUNT - parseFloat(product.DISCOUNTItemWise)).toFixed(2);
             }
             if (qty > 0) {
                 if ($("#hfBillFormat").val() === "2") {
@@ -797,12 +797,12 @@ function ReprintInvoice() {
                     var amountWithGST = (parseFloat(priceWithGST) * parseFloat(product.QTY)).toFixed(2);
                     totalamountWithGST += parseFloat(amountWithGST);
 
-                    if (parseFloat(product.DISCOUNT) > 0) {
+                    if (parseFloat(product.DISCOUNTItemWise) > 0) {
                         var row = $('<tr>' +
                     '<td>' + product.SKU_NAME + '</td>' +
                     '<td class="text-right">' + product.QTY + '</td>' +
                     '<td class="text-right">' + priceWithGST + '</td>' +
-                    '<td class="text-right">' + product.DISCOUNT + '</td>' +
+                    '<td class="text-right">' + product.DISCOUNTItemWise + '</td>' +
                     '<td class="text-right">' + amountWithGST + '</td>' +
                     '<td style="display:none">' + product.SALE_INVOICE_DETAIL_ID + '</td>' +
                 '</tr>');
@@ -827,33 +827,18 @@ function ReprintInvoice() {
                     tableIdSet.add(productId);
                 }
                 else {
-                    if (parseFloat(product.DISCOUNT) > 0) {
+                    if (parseFloat(product.DISCOUNTItemWise) > 0) {
                         var row = $(' <tr><td>' + product.SKU_NAME
                             + '</td><td class="text-right">'
                             + product.QTY + '</td><td class="text-right">'
                             + tprice + '</td><td class="text-right">'
-                            + product.DISCOUNT + '</td><td class="text-right">'
+                            + product.DISCOUNTItemWise + '</td><td class="text-right">'
                             + amount + '</td><td style="display:none">'
                             + product.SALE_INVOICE_DETAIL_ID + '</td></tr>');
-                        var row = $('<tr>' +
-                '<td>' + product.SKU_NAME + '</td>' +
-                '<td class="text-right">' + product.QTY + '</td>' +
-                '<td class="text-right">' + tprice + '</td>' +
-                '<td class="text-right">' + product.DISCOUNT + '</td>' +
-                '<td class="text-right">' + amount + '</td>' +
-                '<td style="display:none">' + product.SALE_INVOICE_DETAIL_ID + '</td>' +
-            '</tr>');
                         $('#invoiceDetailBody').append(row);
                         tableIdSet.add(productId);
                     }
                     else {
-                        var row = $(' <tr><td>'
-                            + product.SKU_NAME + '</td><td class="text-right">'
-                            + product.QTY + '</td><td class="text-right">'
-                            + tprice + '</td><td class="text-right">'
-                            + amount + '</td><td style="display:none">'
-                            + product.SALE_INVOICE_DETAIL_ID + '</td></tr>');
-
                         var row = $('<tr>' +
                 '<td>' + product.SKU_NAME + '</td>' +
                 '<td class="text-right">' + product.QTY + '</td>' +
