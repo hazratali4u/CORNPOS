@@ -2303,6 +2303,19 @@ function setTotals() {
         document.getElementById('dvCustomerGST').style.display = "none";
         salesTax = document.getElementById("hfSalesTax").value;
         salesTax2 = document.getElementById("hfSalesTaxCreditCard").value;
+        if (parseInt($('#hfPaymentType').val()) > 2) {
+            var lstPaymentModes = document.getElementById("hfPaymentModes").value;
+            if (lstPaymentModes !== "") {
+                PaymentModes = JSON.parse(lstPaymentModes);
+                for (var i = 0; i < PaymentModes.length; i++) {
+                    if (PaymentModes[i].POSID == parseInt($('#hfPaymentType').val())) {
+                        salesTax = PaymentModes[i].Tax;
+                        salesTax2 = PaymentModes[i].Tax;
+                        break;
+                    }
+                }
+            }
+        }
     }
     if (salesTax == "") {
         salesTax = 0;
@@ -8179,6 +8192,18 @@ function CalculateBalance() {
         }
         else {
             gst = document.getElementById("hfSalesTaxCreditCard").value;
+            if (parseInt($('#hfPaymentType').val()) > 2) {
+                var lstPaymentModes = document.getElementById("hfPaymentModes").value;
+                if (lstPaymentModes !== "") {
+                    PaymentModes = JSON.parse(lstPaymentModes);
+                    for (var i = 0; i < PaymentModes.length; i++) {
+                        if (PaymentModes[i].POSID == parseInt($('#hfPaymentType').val())) {
+                            gst = PaymentModes[i].Tax;
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
     servicecharges = $("#lblServiceChargesTotalPayment").text();
@@ -8312,6 +8337,18 @@ function CalculateBalance3() {
         }
         else {
             gst = document.getElementById("hfSalesTaxCreditCard").value;
+            if (parseInt($('#hfPaymentType').val()) > 2) {
+                var lstPaymentModes = document.getElementById("hfPaymentModes").value;
+                if (lstPaymentModes !== "") {
+                    PaymentModes = JSON.parse(lstPaymentModes);
+                    for (var i = 0; i < PaymentModes.length; i++) {
+                        if (PaymentModes[i].POSID == parseInt($('#hfPaymentType').val())) {
+                            gst = PaymentModes[i].Tax;
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
     servicecharges = $("#lblServiceChargesTotalPayment").text();
@@ -9314,6 +9351,18 @@ function CalculateBalance2() {
         }
         else {
             gst = document.getElementById("hfSalesTaxCreditCard").value;
+            if (parseInt($('#hfPaymentType').val()) > 2) {
+                var lstPaymentModes = document.getElementById("hfPaymentModes").value;
+                if (lstPaymentModes !== "") {
+                    PaymentModes = JSON.parse(lstPaymentModes);
+                    for (var i = 0; i < PaymentModes.length; i++) {
+                        if (PaymentModes[i].POSID == parseInt($('#hfPaymentType').val())) {
+                            gst = PaymentModes[i].Tax;
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
     $("#lblBalance").text('');

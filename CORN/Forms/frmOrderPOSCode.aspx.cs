@@ -221,6 +221,7 @@ public partial class Forms_frmOrderPOSCode : System.Web.UI.Page
             if (ds.Tables[9].Rows.Count > 0)
             {
                 hfPaymentModes.Value = GetJson(ds.Tables[9]);
+                Session.Add("tblPaymentMode", ds.Tables[9]);
             }
             #endregion
 
@@ -735,6 +736,22 @@ public partial class Forms_frmOrderPOSCode : System.Web.UI.Page
             else
             {
                 taxRate = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                DataTable tblPaymentMode = new DataTable();
+                if (HttpContext.Current.Session["tblPaymentMode"] != null)
+                {
+                    tblPaymentMode = (DataTable)HttpContext.Current.Session["tblPaymentMode"];
+                }
+                if (int.Parse(payType) > 2)
+                {
+                    foreach (DataRow dr in tblPaymentMode.Rows)
+                    {
+                        if (payType.ToString() == dr["POSID"].ToString())
+                        {
+                            taxRate = Convert.ToDecimal(dr["Tax"]);
+                            break;
+                        }
+                    }
+                }
             }
             string GSTCalculation = HttpContext.Current.Session["GSTCalculation"].ToString();
             if (GSTCalculation == "1")
@@ -763,6 +780,10 @@ public partial class Forms_frmOrderPOSCode : System.Web.UI.Page
             else
             {
                 GSTPER = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                if (int.Parse(payType) > 2)
+                {
+                    GSTPER = taxRate;
+                }
             }
             if (dtValue != null && dtValue.Rows.Count > 0 && long.Parse(dtValue.Rows[0]["INVOICE_ID"].ToString()) > 0)
             {
@@ -872,6 +893,22 @@ public partial class Forms_frmOrderPOSCode : System.Web.UI.Page
             else
             {
                 taxRate = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                DataTable tblPaymentMode = new DataTable();
+                if (HttpContext.Current.Session["tblPaymentMode"] != null)
+                {
+                    tblPaymentMode = (DataTable)HttpContext.Current.Session["tblPaymentMode"];
+                }
+                if (int.Parse(payType) > 2)
+                {
+                    foreach (DataRow dr in tblPaymentMode.Rows)
+                    {
+                        if (payType.ToString() == dr["POSID"].ToString())
+                        {
+                            taxRate = Convert.ToDecimal(dr["Tax"]);
+                            break;
+                        }
+                    }
+                }
             }
             string GSTCalculation = HttpContext.Current.Session["GSTCalculation"].ToString();
             if (GSTCalculation == "1")
@@ -900,6 +937,10 @@ public partial class Forms_frmOrderPOSCode : System.Web.UI.Page
             else
             {
                 GSTPER = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                if (int.Parse(payType) > 2)
+                {
+                    GSTPER = taxRate;
+                }
             }
             if (dtValue != null && dtValue.Rows.Count > 0 && long.Parse(dtValue.Rows[0]["INVOICE_ID"].ToString()) > 0)
             {

@@ -286,6 +286,7 @@ namespace Forms
                 if (ds.Tables[9].Rows.Count > 0)
                 {
                     hfPaymentModes.Value = GetJson(ds.Tables[9]);
+                    Session.Add("tblPaymentMode", ds.Tables[9]);
                 }
                 #endregion
 
@@ -1144,6 +1145,22 @@ namespace Forms
                     else
                     {
                         taxRate = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                        DataTable tblPaymentMode = new DataTable();
+                        if (HttpContext.Current.Session["tblPaymentMode"] != null)
+                        {
+                            tblPaymentMode = (DataTable)HttpContext.Current.Session["tblPaymentMode"];
+                        }
+                        if (int.Parse(payType) > 2)
+                        {
+                            foreach(DataRow dr in tblPaymentMode.Rows)
+                            {
+                                if(payType.ToString() == dr["POSID"].ToString())
+                                {
+                                    taxRate = Convert.ToDecimal(dr["Tax"]);
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
                 if (HttpContext.Current.Session["ItemWiseGST"].ToString() == "0")
@@ -1195,6 +1212,10 @@ namespace Forms
                 else
                 {
                     GSTPER = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                    if (int.Parse(payType) > 2)
+                    {
+                        GSTPER = taxRate;
+                    }
                 }
                 if (HttpContext.Current.Session["ItemWiseGST"].ToString() == "1")
                 {
@@ -1320,6 +1341,7 @@ namespace Forms
                                     Discount = decimal.Parse(dc.chkNull_0(discount));
                                 }
                             }
+
                             if (int.Parse(payType) == 0)
                             {
                                 PaymentMode = 1;
@@ -1334,7 +1356,7 @@ namespace Forms
                             else
                             {
                                 TaxRate = Convert.ToDouble(HttpContext.Current.Session["GSTRate"]);
-                                PaymentMode = 6;//Cheque For Credit invoices
+                                PaymentMode = 6;//Cheque For Credit invoices                                
                             }
                             if (HttpContext.Current.Session["TaxIntegration"].ToString() == "3")//Khyber PukhtunKhwa Revenue Authority
                             {
@@ -1397,6 +1419,22 @@ namespace Forms
                     else
                     {
                         taxRate = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                        DataTable tblPaymentMode = new DataTable();
+                        if (HttpContext.Current.Session["tblPaymentMode"] != null)
+                        {
+                            tblPaymentMode = (DataTable)HttpContext.Current.Session["tblPaymentMode"];
+                        }
+                        if (int.Parse(payType) > 2)
+                        {
+                            foreach (DataRow dr in tblPaymentMode.Rows)
+                            {
+                                if (payType.ToString() == dr["POSID"].ToString())
+                                {
+                                    taxRate = Convert.ToDecimal(dr["Tax"]);
+                                    break;
+                                }
+                            }
+                        }
                     }
                     if (HttpContext.Current.Session["ItemWiseGST"].ToString() == "0")
                     {
@@ -1447,6 +1485,10 @@ namespace Forms
                     else
                     {
                         GSTPER = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                        if (int.Parse(payType) > 2)
+                        {
+                            GSTPER = taxRate;
+                        }
                     }
                     if (HttpContext.Current.Session["ItemWiseGST"].ToString() == "1")
                     {
@@ -1598,6 +1640,7 @@ namespace Forms
                                     Discount = decimal.Parse(dc.chkNull_0(discount));
                                 }
                             }
+
                             if (int.Parse(payType) == 0)
                             {
                                 PaymentMode = 1;
@@ -1675,6 +1718,22 @@ namespace Forms
                     else
                     {
                         taxRate = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                        DataTable tblPaymentMode = new DataTable();
+                        if (HttpContext.Current.Session["tblPaymentMode"] != null)
+                        {
+                            tblPaymentMode = (DataTable)HttpContext.Current.Session["tblPaymentMode"];
+                        }
+                        if (int.Parse(payType) > 2)
+                        {
+                            foreach (DataRow dr in tblPaymentMode.Rows)
+                            {
+                                if (payType.ToString() == dr["POSID"].ToString())
+                                {
+                                    taxRate = Convert.ToDecimal(dr["Tax"]);
+                                    break;
+                                }
+                            }
+                        }
                     }
                     if (HttpContext.Current.Session["ItemWiseGST"].ToString() == "0")
                     {
@@ -1725,6 +1784,10 @@ namespace Forms
                     else
                     {
                         GSTPER = Convert.ToDecimal(HttpContext.Current.Session["GSTRate"]);
+                        if (int.Parse(payType) > 2)
+                        {
+                            GSTPER = taxRate;
+                        }
                     }
                     if (HttpContext.Current.Session["ItemWiseGST"].ToString() == "1")
                     {
