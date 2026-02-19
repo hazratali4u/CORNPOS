@@ -675,6 +675,15 @@ function SaleInvoicePrint2(tblProducts) {
         else if ($('#hfPaymentType').val() == "1") {
             $("#PayType3").text('MOP: Credit Card');
         }
+        else if ($('#hfPaymentType').val() == "3") {
+            $("#PayType3").text('MOP: Easypaisa');
+        }
+        else if ($('#hfPaymentType').val() == "4") {
+            $("#PayType3").text('MOP: Jaz Cash');
+        }
+        else if ($('#hfPaymentType').val() == "5") {
+            $("#PayType3").text('MOP: Online Tran');
+        }
         else {
             $("#PayType3").text('MOP: Cash');
         }
@@ -1355,6 +1364,15 @@ function SaleInvoicePrint3(tblProducts) {
             }
             $("#PayType4").text('MOP: Credit Card');
         }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+            $("#PayType4").text('MOP: Easypaisa');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+            $("#PayType4").text('MOP: Jaz Cash');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+            $("#PayType4").text('MOP: Online Tran');
+        }
         else {
             $("#PayType4").text('MOP: Cash');
         }
@@ -1927,6 +1945,15 @@ function SaleInvoicePrint4(tblProducts) {
                 $("#lblAccountTitle5").text("Acc. Title : " + tblProducts[0].CreditCardAccountTile);
             }
             $("#PayType5").text('MOP: Credit Card');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+            $("#PayType5").text('MOP: Easypaisa');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+            $("#PayType5").text('MOP: Jaz Cash');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+            $("#PayType5").text('MOP: Online Tran');
         }
         else {
             $("#PayType5").text('MOP: Cash');
@@ -3131,6 +3158,15 @@ function SaleInvoicePrint(tblProducts) {
             }
             $("#PayType").text('MOP: Credit Card');
         }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+            $("#PayType").text('MOP: Easypaisa');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+            $("#PayType").text('MOP: Jaz Cash');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+            $("#PayType").text('MOP: Online Tran');
+        }
         else {
             $("#PayType").text('MOP: Cash');
         }
@@ -3946,6 +3982,15 @@ function PaymentInvoicePrint2(tblProducts) {
             $("#balance-value23").text(text);
         }
     }
+    else if ($('#hfPaymentType').val() == "3") {
+        $("#PayType3").text('MOP: Easypaisa');
+    }
+    else if ($('#hfPaymentType').val() == "4") {
+        $("#PayType3").text('MOP: Jaz Cash');
+    }
+    else if ($('#hfPaymentType').val() == "5") {
+        $("#PayType3").text('MOP: Online Tran');
+    }
     else {//For Cash Payment
         $("#PayType").text('MOP: Cash');
         $("#PayType3").text('MOP: Cash');
@@ -4674,6 +4719,15 @@ function PaymentInvoicePrint3(tblProducts) {
         else if (tblProducts[0].PAYMENT_MODE_ID == 1) {
             $("#PayType4").text('MOP: Credit Card');
         }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+            $("#PayType4").text('MOP: Easypaisa');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+            $("#PayType4").text('MOP: Jaz Cash');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+            $("#PayType4").text('MOP: Online Tran');
+        }
         else {
             $("#PayType4").text('MOP: Cash');
         }
@@ -4751,6 +4805,15 @@ function PaymentInvoicePrint3(tblProducts) {
             $("#balance-text24").text(text);
             $("#balance-value24").text(text);
         }
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+        $("#PayType4").text('MOP: Easypaisa');
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+        $("#PayType4").text('MOP: Jaz Cash');
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+        $("#PayType4").text('MOP: Online Tran');
     }
     else {//For Cash Payment
         $("#PayType4").text('MOP: Cash');
@@ -5257,6 +5320,15 @@ function PaymentInvoicePrint4(tblProducts) {
             $("#balance-text25").text(text);
             $("#balance-value25").text(text);
         }
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+        $("#PayType5").text('MOP: Easypaisa');
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+        $("#PayType5").text('MOP: Jaz Cash');
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+        $("#PayType5").text('MOP: Online Tran');
     }
     else {//For Cash Payment
         $("#PayType5").text('MOP: Cash');
@@ -6093,6 +6165,15 @@ function PaymentInvoicePrint(tblProducts) {
             $("#balance-value2").text(text);
         }
     }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+        $("#PayType").text('MOP: Easypaisa');
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+        $("#PayType").text('MOP: Jaz Cash');
+    }
+    else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+        $("#PayType").text('MOP: Online Tran');
+    }
     else {//For Cash Payment
         $("#PayType").text('MOP: Cash');
         $("#PayIn-text").text('Payment IN :');
@@ -6785,6 +6866,15 @@ function PrintSaleInvoiceCashCreditCardBoth(tblProducts) {
         }
         else if (tblProducts[0].PAYMENT_MODE_ID == 1) {
             $("#PayType").text('MOP: Credit Card');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 3) {
+            $("#PayType").text('MOP: Easypaisa');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 4) {
+            $("#PayType").text('MOP: Jaz Cash');
+        }
+        else if (tblProducts[0].PAYMENT_MODE_ID == 5) {
+            $("#PayType").text('MOP: Online Tran');
         }
         else {
             $("#PayType").text('MOP: Cash');
