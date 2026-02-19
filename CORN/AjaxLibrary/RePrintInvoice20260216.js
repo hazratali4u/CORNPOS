@@ -1013,6 +1013,16 @@ function ReprintInvoice() {
         $("#balance-text2").text(text);
         $("#balance-value2").text(text);
     }
+    else if ($('#hfPaymentType').val() == "3")
+    {
+        $("#PayType").text('MOP: Easypaisa');
+    }
+    else if ($('#hfPaymentType').val() == "4") {
+        $("#PayType").text('MOP: Jazz Cash');
+    }
+    else if ($('#hfPaymentType').val() == "5") {
+        $("#PayType").text('MOP: Online Tran');
+    }
     else {//For Cash Payment
         $("#PayType").text('MOP: Cash');
         $("#PayIn-text").text('Payment IN :');
@@ -1596,6 +1606,16 @@ function ReprintInvoice3() {
         $("#balance-text23").text(text);
         $("#balance-value23").text(text);
     }
+    else if ($('#hfPaymentType').val() == "3")
+    {
+        $("#PayType3").text('MOP: Easypaisa');
+    }
+    else if ($('#hfPaymentType').val() == "4") {
+        $("#PayType3").text('MOP: Jaz Cash');
+    }
+    else if ($('#hfPaymentType').val() == "5") {
+        $("#PayType3").text('MOP: Online Tran');
+    }
     else {//For Cash Payment
         $("#PayType3").text('MOP: Cash');
         $("#PayIn-text3").text('Payment IN :');
@@ -1966,6 +1986,15 @@ function ReprintInvoice4() {
         $("#balance-text24").text(text);
         $("#balance-value24").text(text);
     }
+    else if ($('#hfPaymentType').val() == "3") {
+        $("#PayType4").text('MOP: Easypaisa');
+    }
+    else if ($('#hfPaymentType').val() == "4") {
+        $("#PayType4").text('MOP: Jaz Cash');
+    }
+    else if ($('#hfPaymentType').val() == "5") {
+        $("#PayType4").text('MOP: Online Tran');
+    }
     else {//For Cash Payment
         $("#PayType4").text('MOP: Cash');
         $("#PayIn-text4").text('Tendered-Amt:');
@@ -2221,6 +2250,15 @@ function ReprintInvoice5() {
         $("#balance-value5").text(parseFloat($("#GrandTotal-value7").text()) * -1);
         $("#balance-text25").text(text);
         $("#balance-value25").text(text);
+    }
+    else if ($('#hfPaymentType').val() == "3") {
+        $("#PayType5").text('MOP: Easypaisa');
+    }
+    else if ($('#hfPaymentType').val() == "4") {
+        $("#PayType5").text('MOP: Jaz Cash');
+    }
+    else if ($('#hfPaymentType').val() == "5") {
+        $("#PayType5").text('MOP: Online Tran');
     }
     else {//For Cash Payment
         $("#PayType5").text('MOP: Cash');
