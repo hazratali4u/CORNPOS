@@ -251,6 +251,7 @@ function LoadPendingBill(products) {
             obj["Amount"] = products[i].AMOUNT;
             obj["ModifierParetn_Row_ID"] = products[i].ModifierParetn_Row_ID;
             obj["DISCOUNTItemWise"] = products[i].DISCOUNTItemWise;
+            obj["SALE_INVOICE_DETAIL_ID"] = products[i].SALE_INVOICE_DETAIL_ID;
             Modifierparent.push(obj);
         }
         $("#lblDelChannel").text(products[0].DelChannelName);

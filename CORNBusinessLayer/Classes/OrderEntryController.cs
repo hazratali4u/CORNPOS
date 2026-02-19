@@ -1013,31 +1013,38 @@ namespace CORNBusinessLayer.Classes
                             ItemType = 1;
                         }
 
-                        uspInsertSaleInvoiceItemLog mItemLesCancel = new uspInsertSaleInvoiceItemLog
+                        try
                         {
-                            Connection = mConnection,
-                            Transaction = mTransaction,
-                            SALE_INVOICE_ID = pSaleInvoiceId,
-                            SALE_INVOICE_DETAIL_ID = SALEINVOICEDETAILD,
-                            SKU_ID = Convert.ToInt32(dr["SKU_ID"]),
-                            IS_VOID = Convert.ToBoolean(dr["VOID"]),
-                            QTY = Convert.ToDecimal(dr["QTY"]),
-                            VOID_BY = p_VOID_BY,
-                            LessCancelReasonID = intLessCancelReasonID,
-                            ItemType = ItemType,
-                            DealQty = Convert.ToDecimal(dr["DEAL_QTY"])
-                        };
-                        DataTable dtItemLog = mItemLesCancel.ExecuteTable();
-                        if (ItemType == 2)//Insert Consumption
-                        {
-                            dtItemLessCancel.ImportRow(dr);
-                            foreach (DataRow drLessCancel in dtItemLessCancel.Rows)
+                            uspInsertSaleInvoiceItemLog mItemLesCancel = new uspInsertSaleInvoiceItemLog
                             {
-                                if (drLessCancel["SKU_ID"].ToString() == dr["SKU_ID"].ToString())
+                                Connection = mConnection,
+                                Transaction = mTransaction,
+                                SALE_INVOICE_ID = pSaleInvoiceId,
+                                SALE_INVOICE_DETAIL_ID = SALEINVOICEDETAILD,
+                                SKU_ID = Convert.ToInt32(dr["SKU_ID"]),
+                                IS_VOID = Convert.ToBoolean(dr["VOID"]),
+                                QTY = Convert.ToDecimal(dr["QTY"]),
+                                VOID_BY = p_VOID_BY,
+                                LessCancelReasonID = intLessCancelReasonID,
+                                ItemType = ItemType,
+                                DealQty = Convert.ToDecimal(dr["DEAL_QTY"])
+                            };
+                            DataTable dtItemLog = mItemLesCancel.ExecuteTable();
+                            if (ItemType == 2)//Insert Consumption
+                            {
+                                dtItemLessCancel.ImportRow(dr);
+                                foreach (DataRow drLessCancel in dtItemLessCancel.Rows)
                                 {
-                                    drLessCancel["QTY"] = dtItemLog.Rows[0]["RETURN_QTY"];
+                                    if (drLessCancel["SKU_ID"].ToString() == dr["SKU_ID"].ToString())
+                                    {
+                                        drLessCancel["QTY"] = dtItemLog.Rows[0]["RETURN_QTY"];
+                                    }
                                 }
                             }
+                        }
+                        catch (Exception ex)
+                        {
+                            ExceptionPublisher.PublishExceptionforSync(ex, "uspInsertSaleInvoiceItemLog:SALE_INVOICE_ID=" + pSaleInvoiceId);
                         }
                     }
 
@@ -5794,50 +5801,7 @@ namespace CORNBusinessLayer.Classes
                     mConnection.Close();
                 }
             }
-        }
-
-        public static void InsertKOTDetail(byte pKOTType, int pLocationID, long pSaleInvoiceID, long pSaleInvoiceDetailID, int pKOTNo, string pSection, string pServiceType, string pTableName, int pOrderBookerID, string pOrderNotes
-            , int pSKUID, decimal pQuantity, string pDealName, decimal pDealQTY, string pItemComments, string pModifiers, string pCategory, string pTimeStamp, string pLastUpdateDateTime,string pLastUpdateDateTimeDetail, int pModifierParetn_Row_ID
-            , int pUserID, IDbConnection mConnection, IDbTransaction mTransaction)
-        {
-            try
-            {
-                uspInsertKOTDetail mKot = new uspInsertKOTDetail();
-                mKot.Connection = mConnection;
-                mKot.Transaction = mTransaction;
-
-                mKot.KOTType = pKOTType;
-                mKot.LocationID = pLocationID;
-                mKot.SaleInvoiceID = pSaleInvoiceID;
-                mKot.SaleInvoiceDetailID = pSaleInvoiceDetailID;
-                mKot.KOTNo = pKOTNo;
-                mKot.Section = pSection;
-                mKot.ServiceType = pServiceType;
-                mKot.TableName = pTableName;
-                mKot.OrderBookerID = pOrderBookerID;
-                mKot.OrderNotes = pOrderNotes;
-                mKot.SKUID = pSKUID;
-                mKot.Quantity = pQuantity;
-                mKot.DealName = pDealName;
-                mKot.DealQTY = pDealQTY;
-                mKot.ItemComments = pItemComments;
-                mKot.Modifiers = pModifiers;
-                mKot.Category = pCategory;
-                mKot.TimeStamp = pTimeStamp;
-                mKot.LastUpdateDateTime = pLastUpdateDateTime;
-                mKot.LastUpdateDateTimeDetail = pLastUpdateDateTimeDetail;
-                mKot.ModifierParetn_Row_ID = pModifierParetn_Row_ID;
-                mKot.UserID = pUserID;
-                mKot.ExecuteQuery();
-            }
-            catch (Exception exp)
-            {
-                ExceptionPublisher.PublishException(exp);
-                mTransaction.Rollback();
-                throw;
-            }
-        }
-
+        }        
         #endregion
     }
 }
