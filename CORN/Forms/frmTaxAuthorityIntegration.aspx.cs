@@ -27,6 +27,7 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
                 LoadDistributor();
                 LoadGridData();
                 LoadGridMaster("");
+                txtURL.Text = "https://gw.fbr.gov.pk/imsp/v1/api/Live/PostData";
             }
         }
         catch (Exception)
@@ -104,7 +105,7 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
                 bool IsExist = false;
                 foreach (GridViewRow gvr in grdPrice.Rows)
                 {
-                    if(gvr.Cells[5].Text == drpDistributor.SelectedItem.Value.ToString())
+                    if(gvr.Cells[5].Text == drpDistributor.SelectedItem.Value.ToString() && gvr.Cells[4].Text == txtURL.Text)
                     {
                         IsExist = true;
                         break;
@@ -115,6 +116,7 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
                     if (TaxCtrl.InsertTaxAuthority(Convert.ToInt32(drpDistributor.SelectedItem.Value), txtPOSID.Text, txtToken.Text, txtURL.Text,txtInvocieLabel.Text, Convert.ToInt32(Session["UserID"])))
                     {
                         txtPOSID.Text = string.Empty;
+                        txtToken.Text = string.Empty;
                         LoadGridData();
                         LoadGridMaster("");
                         ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Successfully Save');", true);
@@ -133,7 +135,9 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
             {
                 if (TaxCtrl.UpdateTaxAuthority(Convert.ToInt32(hfMasterId.Value), Convert.ToInt32(drpDistributor.SelectedItem.Value), txtPOSID.Text, txtToken.Text, txtURL.Text,txtInvocieLabel.Text, Convert.ToInt32(Session["UserID"])))
                 {
+                    ddlTaxAuthority.Enabled = true;
                     txtPOSID.Text = string.Empty;
+                    txtToken.Text = string.Empty;
                     btnSave.Text = "Save";
                     ScriptManager.RegisterStartupScript(this, GetType(), "msg", "alert('Successfully updated');", true);
                 }
@@ -151,7 +155,8 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
 
     protected void btnCancel_Click(object sender, EventArgs e)
     {
-        mPopUpSection.Show();
+        ddlTaxAuthority.Enabled = true;
+        Clear();
         hfMasterId.Value = string.Empty;
     }
 
@@ -161,12 +166,13 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
-    {
+    {        
         mPopUpSection.Show();
     }
 
     protected void btnClose_ServerClick(object sender, EventArgs e)
     {
+        ddlTaxAuthority.Enabled = true;
         Clear();
         hfMasterId.Value = string.Empty;
     }
@@ -191,6 +197,7 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
         txtURL.Text = grdPrice.Rows[e.NewEditIndex].Cells[4].Text;
         drpDistributor.SelectedItem.Value = grdPrice.Rows[e.NewEditIndex].Cells[5].Text;
         txtInvocieLabel.Text = grdPrice.Rows[e.NewEditIndex].Cells[6].Text;
+        ddlTaxAuthority.Enabled = false;
         mPopUpSection.Show();
     }
 
@@ -223,5 +230,22 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
         {
             throw;
         }
-    }    
+    }
+
+    protected void ddlTaxAuthority_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        mPopUpSection.Show();
+        if (ddlTaxAuthority.SelectedItem.Value.ToString() == "1")
+        {
+            txtURL.Text = "https://gw.fbr.gov.pk/imsp/v1/api/Live/PostData";
+        }
+        else if (ddlTaxAuthority.SelectedItem.Value.ToString() == "2")
+        {
+            txtURL.Text = "https://ims.pral.com.pk/ims/production/api/Live/PostData";
+        }
+        else
+        {
+            txtURL.Text = "https://pos.srb.gos.pk/PoSService/CloudSalesInvoiceService";
+        }
+    }
 }

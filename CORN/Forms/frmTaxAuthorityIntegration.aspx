@@ -90,11 +90,12 @@
                                                             <div class="row">
                                                                 <div class="col-md-8">
                                                                     <label><span class="fa fa-caret-right rgt_cart"></span>Tax Authority</label>
-                                                                    <dx:ASPxComboBox ID="ddlTaxAuthority" runat="server" CssClass="form-control">
+                                                                    <dx:ASPxComboBox ID="ddlTaxAuthority" runat="server" CssClass="form-control" AutoPostBack="true"
+                                                                        OnSelectedIndexChanged="ddlTaxAuthority_SelectedIndexChanged">
                                                                         <Items>
                                                                             <dx:ListEditItem Value="1" Text="FBR - Federal Board of Revenue" Selected="true" />
                                                                             <dx:ListEditItem Value="2" Text="PRA - Punjab Revenue Authority" />
-                                                                            <dx:ListEditItem Value="3" Text="KPRA - Khyber Pakhtunkhwa Revenue Authority" />
+                                                                            <%--<dx:ListEditItem Value="3" Text="KPRA - Khyber Pakhtunkhwa Revenue Authority" />--%>
                                                                             <dx:ListEditItem Value="4" Text="SRB - Sindh Revenue Board" />
                                                                         </Items>
                                                                     </dx:ASPxComboBox>
@@ -122,7 +123,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-8">
                                                                     <label><span class="fa fa-caret-right rgt_cart"></span>URL</label>
-                                                                    <dx:ASPxTextBox ID="txtURL" runat="server" CssClass="form-control"></dx:ASPxTextBox>
+                                                                    <dx:ASPxTextBox ID="txtURL" runat="server" CssClass="form-control" Enabled="false"></dx:ASPxTextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
