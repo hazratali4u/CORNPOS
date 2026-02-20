@@ -49,9 +49,9 @@ public partial class Inventory : System.Web.UI.Page
         bool flag = true;
         if (rblActionType.SelectedValue == "1")//Delete
         {
-            if (rblType.SelectedItem.Value == "1")
+            if (rblType.SelectedItem.Value == "2")//Purchase
             {
-                if (PurchaseDelete())
+                if (DocumentDelete(2))
                 {
                     lblError.Text = "Purchase Deleted successfully.";
                 }
@@ -69,16 +69,20 @@ public partial class Inventory : System.Web.UI.Page
         }
         else//Edit
         {
+            if (rblType.SelectedItem.Value == "2")//Purchase
+            {
 
+            }
         }
         if (flag)
         {
-            LoadData();
+            LoadData(Convert.ToInt32(rblType.SelectedItem.Value));
+            GetDocDetail();
         }
     } 
-    private bool PurchaseDelete()
+    private bool DocumentDelete(int DocType)
     {
-        DataTable dtPurchaseDetail = GetData(Convert.ToInt32(ddlLocation.SelectedValue), Convert.ToInt64(ddlRecord.SelectedValue), 4);
+        DataTable dtPurchaseDetail = GetData(Convert.ToInt32(ddlLocation.SelectedValue), Convert.ToInt64(ddlRecord.SelectedValue), 10);
         StringBuilder sbPurchaseDetail = new StringBuilder();
         foreach (DataRow dr in dtPurchaseDetail.Rows)
         {
@@ -91,7 +95,7 @@ public partial class Inventory : System.Web.UI.Page
             }
             else
             {
-                StockUpdate(txtDate.Text, Convert.ToInt32(dr["SKU_ID"]), Convert.ToInt32(ddlLocation.SelectedValue), Convert.ToInt32(dr["QUANTITY"]));
+                StockUpdate(txtDate.Text, Convert.ToInt32(dr["SKU_ID"]), Convert.ToInt32(ddlLocation.SelectedValue), Convert.ToInt32(dr["QUANTITY"]), DocType);
             }
         }
 
@@ -110,22 +114,24 @@ public partial class Inventory : System.Web.UI.Page
         {
             return false;
         }
-
-        StringBuilder sbGLMaster = new StringBuilder();
-        sbGLMaster.Append(Environment.NewLine);
-        sbGLMaster.Append("UPDATE GL_MASTER SET IS_DELETED = 1 WHERE INVOICE_TYPE = 2 AND INVOICE_ID = " + Convert.ToInt64(ddlRecord.SelectedValue));
-        if (!ExecuteScript(sbGLMaster.ToString(), ddlDB.SelectedValue))
+        if (DocType == 2)
         {
-            return false;
+            StringBuilder sbGLMaster = new StringBuilder();
+            sbGLMaster.Append(Environment.NewLine);
+            sbGLMaster.Append("UPDATE GL_MASTER SET IS_DELETED = 1 WHERE INVOICE_TYPE = 2 AND INVOICE_ID = " + Convert.ToInt64(ddlRecord.SelectedValue));
+            if (!ExecuteScript(sbGLMaster.ToString(), ddlDB.SelectedValue))
+            {
+                return false;
+            }
         }
-
         return true;
     }
     protected void ddlDB_SelectedIndexChanged(object sender, EventArgs e)
     {
         string connString = conStringCorn;
         LoadLocations(true, connString);
-        LoadData();
+        LoadData(Convert.ToInt32(rblType.SelectedItem.Value));
+        GetDocDetail();
     }
     public void LoadLocations(bool Select, string conString)
     {
@@ -176,11 +182,12 @@ public partial class Inventory : System.Web.UI.Page
     }
 
     protected void btnLoad_Click(object sender, EventArgs e)
-    {        
-        LoadData();
+    {
+        LoadData(Convert.ToInt32(rblType.SelectedItem.Value));
+        GetDocDetail();
     }    
 
-    private void LoadData()
+    private void LoadData(int DocType)
     {
         StringBuilder sbQuery = new StringBuilder();
         sbQuery.Append("SELECT ");
@@ -197,7 +204,7 @@ public partial class Inventory : System.Web.UI.Page
         sbQuery.Append(Environment.NewLine);
         sbQuery.Append("WHERE PM.DISTRIBUTOR_ID = " + ddlLocation.SelectedValue);
         sbQuery.Append(Environment.NewLine);
-        sbQuery.Append("AND PM.[TYPE_ID] = 2");
+        sbQuery.Append("AND PM.[TYPE_ID] = " + DocType);
         sbQuery.Append(Environment.NewLine);
         sbQuery.Append("AND PM.DOCUMENT_DATE = '" + txtDate.Text+ "'");
 
@@ -224,25 +231,20 @@ public partial class Inventory : System.Web.UI.Page
     }
 
     protected void rblType_SelectedIndexChanged(object sender, EventArgs e)
-    {        
-        if(rblActionType.SelectedItem.Value == "1")
-        {
-            btnUpdate.Text = "Delete " + rblType.SelectedItem.Text;            
-        }
-        else
-        {
-            btnUpdate.Text = "Update " + rblType.SelectedItem.Text;
-        }
+    {
+        LoadData(Convert.ToInt32(rblType.SelectedItem.Value));
+        GetDocDetail();
     }
 
     protected void ddlLocation_SelectedIndexChanged(object sender, EventArgs e)
     {
-        LoadData();
+        LoadData(Convert.ToInt32(rblType.SelectedItem.Value));
+        GetDocDetail();
     }
 
     protected void ddlRecord_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        GetDocDetail();
     }
 
     protected void rblActionType_SelectedIndexChanged(object sender, EventArgs e)
@@ -250,10 +252,13 @@ public partial class Inventory : System.Web.UI.Page
         if (rblActionType.SelectedItem.Value == "1")
         {
             btnUpdate.Text = "Delete " + rblType.SelectedItem.Text;
+            gvInvoice.Visible = false;
         }
         else
         {
             btnUpdate.Text = "Update " + rblType.SelectedItem.Text;
+            gvInvoice.Visible = true;
+            GetDocDetail();
         }
     }
 
@@ -301,35 +306,59 @@ public partial class Inventory : System.Web.UI.Page
         }
     }
 
-    private void StockUpdate(string StockDate,int SKU_ID, int DistributorID,int Qty)
+    private void StockUpdate(string StockDate,int SKU_ID, int DistributorID,int Qty,int DocType)
     {
         StringBuilder sbQuery = new StringBuilder();
         StringBuilder sbQuery2 = new StringBuilder();
+        if (DocType == 2)
+        {
+            sbQuery.Append(Environment.NewLine);
+            sbQuery.Append("UPDATE SKU_STOCK_REGISTER");
+            sbQuery.Append(Environment.NewLine);
+            sbQuery.Append("SET CLOSING_STOCK = CLOSING_STOCK - " + Qty);
+            sbQuery.Append(Environment.NewLine);
+            sbQuery.Append("WHERE STOCK_DATE = '" + StockDate + "'");
+            sbQuery.Append(Environment.NewLine);
+            sbQuery.Append("AND SKU_ID = " + SKU_ID);
+            sbQuery.Append(Environment.NewLine);
+            sbQuery.Append("AND DISTRIBUTOR_ID = " + DistributorID);
 
-        sbQuery.Append(Environment.NewLine);
-        sbQuery.Append("UPDATE SKU_STOCK_REGISTER");
-        sbQuery.Append(Environment.NewLine);
-        sbQuery.Append("SET CLOSING_STOCK = CLOSING_STOCK - " + Qty);
-        sbQuery.Append(Environment.NewLine);
-        sbQuery.Append("WHERE STOCK_DATE = '" + StockDate + "'");
-        sbQuery.Append(Environment.NewLine);
-        sbQuery.Append("AND SKU_ID = " + SKU_ID);
-        sbQuery.Append(Environment.NewLine);
-        sbQuery.Append("AND DISTRIBUTOR_ID = " + DistributorID);
+            ExecuteScript(sbQuery.ToString(), ddlDB.SelectedValue);
 
-        ExecuteScript(sbQuery.ToString(), ddlDB.SelectedValue);
-
-        sbQuery2.Append(Environment.NewLine);
-        sbQuery2.Append("UPDATE SKU_STOCK_REGISTER");
-        sbQuery2.Append(Environment.NewLine);
-        sbQuery2.Append("SET OPENING_STOCK = OPENING_STOCK - " + Qty + ",CLOSING_STOCK = CLOSING_STOCK - " + Qty);
-        sbQuery2.Append(Environment.NewLine);
-        sbQuery2.Append("WHERE STOCK_DATE > '" + StockDate + "'");
-        sbQuery2.Append(Environment.NewLine);
-        sbQuery2.Append("AND SKU_ID = " + SKU_ID);
-        sbQuery2.Append(Environment.NewLine);
-        sbQuery2.Append("AND DISTRIBUTOR_ID = " + DistributorID);
-
+            sbQuery2.Append(Environment.NewLine);
+            sbQuery2.Append("UPDATE SKU_STOCK_REGISTER");
+            sbQuery2.Append(Environment.NewLine);
+            sbQuery2.Append("SET OPENING_STOCK = OPENING_STOCK - " + Qty + ",CLOSING_STOCK = CLOSING_STOCK - " + Qty);
+            sbQuery2.Append(Environment.NewLine);
+            sbQuery2.Append("WHERE STOCK_DATE > '" + StockDate + "'");
+            sbQuery2.Append(Environment.NewLine);
+            sbQuery2.Append("AND SKU_ID = " + SKU_ID);
+            sbQuery2.Append(Environment.NewLine);
+            sbQuery2.Append("AND DISTRIBUTOR_ID = " + DistributorID);
+        }
         ExecuteScript(sbQuery2.ToString(), ddlDB.SelectedValue);
+    }
+
+    private void GetDocDetail()
+    {
+        if (rblActionType.SelectedItem.Value == "2")
+        {
+            if (ddlRecord.Items.Count > 0)
+            {
+                DataTable dtDetail = GetData(Convert.ToInt32(ddlLocation.SelectedValue), Convert.ToInt64(ddlRecord.SelectedValue), 10);
+                gvInvoice.DataSource = dtDetail;
+                gvInvoice.DataBind();
+            }
+        }
+    }
+    protected void gvInvoice_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            TextBox txtQuantity = (TextBox)e.Row.Cells[4].FindControl("txtQuantity");
+            TextBox txtPrice = (TextBox)e.Row.Cells[5].FindControl("txtPrice");
+            txtQuantity.Text = e.Row.Cells[1].Text;
+            txtPrice.Text = e.Row.Cells[2].Text;
+        }
     }
 }

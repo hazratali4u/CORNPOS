@@ -33,17 +33,17 @@
                         <div class="span6" runat="server">
                             <asp:RadioButtonList ID="rblType" runat="server" RepeatDirection="Horizontal" Width="100%"
                                 AutoPostBack="true" OnSelectedIndexChanged="rblType_SelectedIndexChanged">
-                                <asp:ListItem Value="1" Text="Purchase" Selected="true"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="Transfer Out" Enabled="false"></asp:ListItem>
+                                <asp:ListItem Value="2" Text="Purchase" Selected="true"></asp:ListItem>
+                                <asp:ListItem Value="5" Text="Transfer Out" Enabled="false"></asp:ListItem>
                                 <asp:ListItem Value="3" Text="Purchase Return" Enabled="false"></asp:ListItem>
-                                <asp:ListItem Value="4" Text="Damage" Enabled="false"></asp:ListItem>
-                                <asp:ListItem Value="5" Text="Production In" Enabled="false"></asp:ListItem>
+                                <asp:ListItem Value="6" Text="Damage" Enabled="false"></asp:ListItem>
+                                <asp:ListItem Value="20" Text="Production In" Enabled="false"></asp:ListItem>
                             </asp:RadioButtonList>
                             <br />
                             <asp:RadioButtonList ID="rblActionType" runat="server" RepeatDirection="Horizontal" Width="30%"
                                 AutoPostBack="true" OnSelectedIndexChanged="rblActionType_SelectedIndexChanged">
                                 <asp:ListItem Value="1" Text="Delete" Selected="true"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="Edit" Enabled="false"></asp:ListItem>
+                                <asp:ListItem Value="2" Text="Edit"></asp:ListItem>
                             </asp:RadioButtonList>
                             <strong>Select Database</strong>
                             <br />
@@ -68,24 +68,45 @@
                             <asp:DropDownList ID="ddlRecord" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlRecord_SelectedIndexChanged">
                             </asp:DropDownList>
                             <br />
-                            <asp:GridView runat="server" ID="gvInvoice" AutoGenerateColumns="False">
+                            <asp:GridView runat="server" ID="gvInvoice" AutoGenerateColumns="False" OnRowDataBound="gvInvoice_RowDataBound">
                                     <Columns>
-                                        <asp:TemplateField HeaderText="Select">
-                                            <ItemTemplate>
-                                                <asp:CheckBox ID="cbInvocie" runat="server" />
-                                            </ItemTemplate>
-                                            <ItemStyle Width="20%" />
-                                        </asp:TemplateField>
-                                        <asp:BoundField DataField="SALE_INVOICE_ID" ReadOnly="true">
+                                        <asp:BoundField DataField="PURCHASE_DETAIL_ID" ReadOnly="true">
                                             <HeaderStyle CssClass="HidePanel" />
                                             <ItemStyle CssClass="HidePanel" />
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderText="Invoice #" DataField="InvoiceNo" ReadOnly="true">
-                                            <ItemStyle Width="30%" />
+                                        <asp:BoundField DataField="QUANTITY" ReadOnly="true">
+                                            <HeaderStyle CssClass="HidePanel" />
+                                            <ItemStyle CssClass="HidePanel" />
                                         </asp:BoundField>
-                                        <asp:BoundField HeaderText="Gross Amount" DataField="AMOUNTDUE" ReadOnly="true">
-                                            <ItemStyle Width="30%" />
-                                        </asp:BoundField>                                                                                
+                                        <asp:BoundField DataField="PRICE" ReadOnly="true">
+                                            <HeaderStyle CssClass="HidePanel" />
+                                            <ItemStyle CssClass="HidePanel" />
+                                        </asp:BoundField>                                        
+                                        <asp:BoundField HeaderText="Item Name" DataField="SKU_NAME" ReadOnly="true">
+                                            <ItemStyle Width="50%" />
+                                        </asp:BoundField>      
+                                        <asp:TemplateField HeaderText="Quantity">
+                                            <ItemTemplate>
+                                                <asp:TextBox id="txtQuantity" runat="server" Width="100" ></asp:TextBox>
+                                                <cc1:FilteredTextBoxExtender 
+                                                ID="fteQuantity" 
+                                                runat="server"
+                                                TargetControlID="txtQuantity"
+                                                ValidChars="0123456789." />
+                                            </ItemTemplate>
+                                            <ItemStyle Width="25%" />
+                                        </asp:TemplateField>
+                                        <asp:TemplateField HeaderText="Price">
+                                            <ItemTemplate>
+                                                <asp:TextBox id="txtPrice" runat="server" Width="100" ></asp:TextBox>
+                                                <cc1:FilteredTextBoxExtender 
+                                                ID="ftePrice" 
+                                                runat="server"
+                                                TargetControlID="txtPrice"
+                                                ValidChars="0123456789." />
+                                            </ItemTemplate>
+                                            <ItemStyle Width="25%" />
+                                        </asp:TemplateField>                                  
                                     </Columns>
                                 </asp:GridView>                            
                             <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" OnClientClick="return confirmation(this);" Text="Delete Purchase" class="btn btn-primary" />
