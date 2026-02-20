@@ -182,7 +182,6 @@ public partial class Forms_frmTaxAuthorityIntegration : System.Web.UI.Page
     {
         txtPOSID.Text = string.Empty;
         txtToken.Text = string.Empty;
-        txtURL.Text = string.Empty;
         btnSave.Text = "Save";
         drpDistributor.Enabled = true;
         drpDistributor.SelectedIndex = 0;
