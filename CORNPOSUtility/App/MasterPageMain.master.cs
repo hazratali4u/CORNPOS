@@ -37,6 +37,11 @@ public partial class MasterPageMain : System.Web.UI.MasterPage
                     {
                         ltrlBreadCrum.Text = "Indexing";
                     }
+                    //Create New Database
+                    else if (Url.ToLower().Contains("adddb.aspx") || Url.ToLower().Contains("adddb.index.aspx") || Url.ToLower().Contains("adddb.aspx"))
+                    {
+                        ltrlBreadCrum.Text = "Create New Database";
+                    }
                     //Truncate
                     else if (Url.ToLower().Contains("truncate.aspx"))
                     {
@@ -121,6 +126,18 @@ public partial class MasterPageMain : System.Web.UI.MasterPage
                         sbMenu.Append("<li id = 'menuInsight' >");
                     }
                     sbMenu.Append("<a href='Index.aspx'>Indexing</ a >");
+                    sbMenu.Append("</ li>");
+
+                    //Create New Database
+                    if (Url.ToLower().Contains("adddb.aspx") || Url.ToLower().Contains("adddb.index.aspx") || Url.ToLower().Contains("adddb.aspx"))
+                    {
+                        sbMenu.Append("<li class='dropdown active' id = 'menuAddDb' >");
+                    }
+                    else
+                    {
+                        sbMenu.Append("<li id = 'menuAddDb' >");
+                    }
+                    sbMenu.Append("<a href='AddDB.aspx'>Create New Database</ a >");
                     sbMenu.Append("</ li>");
 
                     //Activate Location
