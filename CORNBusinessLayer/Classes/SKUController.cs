@@ -1283,7 +1283,7 @@ public string InsertSKUS(bool p_IsExempted, bool p_IsActive, char p_Gst_On, int 
         
         #endregion
 
-        public int InsertProductSection(string SECTION_CODE, string SECTION_NAME, string PRINTER_NAME, bool IS_FULL_KOT,int NO_OF_PRINTS)
+        public int InsertProductSection(string SECTION_CODE, string SECTION_NAME, string PRINTER_NAME, bool IS_FULL_KOT,bool IS_PRINT_KOT, int NO_OF_PRINTS)
         {
             IDbConnection mConnection = null;
             try
@@ -1296,6 +1296,7 @@ public string InsertSKUS(bool p_IsExempted, bool p_IsActive, char p_Gst_On, int 
                 mDepartment.SECTION_NAME = SECTION_NAME;
                 mDepartment.PRINTER_NAME = PRINTER_NAME;
                 mDepartment.IS_FULL_KOT = IS_FULL_KOT;
+                mDepartment.IS_PRINT_KOT = IS_PRINT_KOT;
                 mDepartment.NO_OF_PRINTS = NO_OF_PRINTS;
                 mDepartment.ExecuteQuery();
                 return mDepartment.SECTION_ID;
@@ -1341,7 +1342,7 @@ public string InsertSKUS(bool p_IsExempted, bool p_IsActive, char p_Gst_On, int 
                 }
             }
         }
-        public bool UpdateProductSection(int SECTION_ID, string SECTION_CODE, string SECTION_NAME, string PRINTER_NAME, bool IS_ACTIVE, bool IS_FULL_KOT,int NO_OF_PRINTS)
+        public bool UpdateProductSection(int SECTION_ID, string SECTION_CODE, string SECTION_NAME, string PRINTER_NAME, bool IS_ACTIVE, bool IS_FULL_KOT,bool IS_PRINT_KOT, int NO_OF_PRINTS)
         {
             IDbConnection mConnection = null;
             try
@@ -1357,6 +1358,7 @@ public string InsertSKUS(bool p_IsExempted, bool p_IsActive, char p_Gst_On, int 
                 mSERVICE_TYPE.SECTION_ID = SECTION_ID;
                 mSERVICE_TYPE.SECTION_NAME = SECTION_NAME;
                 mSERVICE_TYPE.IS_FULL_KOT = IS_FULL_KOT;
+                mSERVICE_TYPE.IS_PRINT_KOT = IS_PRINT_KOT;
                 mSERVICE_TYPE.NO_OF_PRINTS = NO_OF_PRINTS;
                 bool a = mSERVICE_TYPE.ExecuteQuery();
                 return a;

@@ -18,6 +18,7 @@ namespace CORNDatabaseLayer.Classes
         private string m_PRINTER_NAME;
         private bool m_IS_FULL_KOT;
         private int m_NO_OF_PRINTS;
+        private bool m_IS_PRINT_KOT;
         #endregion
         #region Public Properties
         public int SECTION_ID
@@ -69,6 +70,11 @@ namespace CORNDatabaseLayer.Classes
         {
             set { m_NO_OF_PRINTS = value; }
             get { return m_NO_OF_PRINTS; }
+        }
+        public bool IS_PRINT_KOT
+        {
+            set { m_IS_PRINT_KOT = value; }
+            get { return m_IS_PRINT_KOT; }
         }
 
         public IDbConnection Connection
@@ -194,6 +200,12 @@ namespace CORNDatabaseLayer.Classes
             {
                 parameter.Value = m_NO_OF_PRINTS;
             }
+            pparams.Add(parameter);
+
+            parameter = ProviderFactory.GetParameter(EnumProviders.SQLClient);
+            parameter.ParameterName = "@IS_PRINT_KOT";
+            parameter.DbType = ProviderFactory.GetDBType(EnumProviders.SQLClient, EnumDBTypes.Bit);
+            parameter.Value = m_IS_PRINT_KOT;
             pparams.Add(parameter);
         }
         #endregion

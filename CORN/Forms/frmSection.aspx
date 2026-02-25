@@ -222,6 +222,10 @@
                                                                         </div>
                                                                         <div class="row">                                                                            
                                                                             <div class="col-md-3">
+                                                                                <asp:CheckBox ID="cbPrintKOT" runat="server" Font-Bold="true" Checked="true"></asp:CheckBox>
+                                                                                <label>Print KOT</label>
+                                                                            </div>
+                                                                            <div class="col-md-3">
                                                                                 <asp:CheckBox ID="chkFullKOT" runat="server" Font-Bold="true"></asp:CheckBox>
                                                                                 <label>Full KOT</label>
                                                                             </div>
@@ -300,11 +304,15 @@
                                         <asp:BoundField DataField="IS_ACTIVE" HeaderText="Status" ReadOnly="true">
                                             <ItemStyle Width="8%" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="IS_FULL_KOT" HeaderText="IS_FULL_KOT" ReadOnly="true">
+                                        <asp:BoundField DataField="IS_FULL_KOT" ReadOnly="true">
                                             <ItemStyle CssClass="HidePanel" />
                                             <HeaderStyle CssClass="HidePanel" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="NO_OF_PRINTS" HeaderText="NO_OF_PRINTS" ReadOnly="true">
+                                        <asp:BoundField DataField="NO_OF_PRINTS" ReadOnly="true">
+                                            <ItemStyle CssClass="HidePanel" />
+                                            <HeaderStyle CssClass="HidePanel" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="IS_PRINT_KOT" ReadOnly="true">
                                             <ItemStyle CssClass="HidePanel" />
                                             <HeaderStyle CssClass="HidePanel" />
                                         </asp:BoundField>

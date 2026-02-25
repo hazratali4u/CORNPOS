@@ -49,7 +49,7 @@ public partial class Forms_frmSection : System.Web.UI.Page
         {
             if (btnSave.Text == "Save")
             {
-                var savedId = _skuController.InsertProductSection(txtCodeNo.Text,txtSectionName.Text, txtPrinterName.Text,chkFullKOT.Checked,Convert.ToInt32(DataControl.chkNull_Zero(txtNoOfPrints.Text)));
+                var savedId = _skuController.InsertProductSection(txtCodeNo.Text,txtSectionName.Text, txtPrinterName.Text,chkFullKOT.Checked,cbPrintKOT.Checked,Convert.ToInt32(DataControl.chkNull_Zero(txtNoOfPrints.Text)));
                 for (int i = 0; i < ChbAreaList.Items.Count; i++)
                 {
                     if (ChbAreaList.Items[i].Selected == true)
@@ -70,7 +70,7 @@ public partial class Forms_frmSection : System.Web.UI.Page
                 {
                     status = false;
                 }
-                _skuController.UpdateProductSection(Convert.ToInt32(hfSectionId.Value), txtCodeNo.Text, txtSectionName.Text, txtPrinterName.Text, status,chkFullKOT.Checked, Convert.ToInt32(DataControl.chkNull_Zero(txtNoOfPrints.Text)));
+                _skuController.UpdateProductSection(Convert.ToInt32(hfSectionId.Value), txtCodeNo.Text, txtSectionName.Text, txtPrinterName.Text, status,chkFullKOT.Checked,cbPrintKOT.Checked, Convert.ToInt32(DataControl.chkNull_Zero(txtNoOfPrints.Text)));
                 for (int i = 0; i < ChbAreaList.Items.Count; i++)
                 {
                     _skuController.InsertUserSECTION(
@@ -166,6 +166,7 @@ public partial class Forms_frmSection : System.Web.UI.Page
         hfStatus.Value= GrdSection.Rows[e.NewEditIndex].Cells[4].Text;
         chkFullKOT.Checked = Convert.ToBoolean(GrdSection.Rows[e.NewEditIndex].Cells[5].Text);
         txtNoOfPrints.Text = GrdSection.Rows[e.NewEditIndex].Cells[6].Text;
+        cbPrintKOT.Checked = Convert.ToBoolean(GrdSection.Rows[e.NewEditIndex].Cells[7].Text);
         mPopUpSection.Show();
         btnSave.Text = "Update";
     }
