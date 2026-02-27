@@ -10,6 +10,7 @@ using CORNDatabaseLayer.Classes;
 using System.Reflection;
 using System.Linq;
 using System.Web;
+using System.IO;
 
 namespace CORNBusinessLayer.Classes
 {
@@ -969,7 +970,7 @@ namespace CORNBusinessLayer.Classes
             IDbConnection mConnection = null;
             IDbTransaction mTransaction = null;
             try
-            {
+            {                
                 DataTable dtItemLessCancel = dtInvoiceDetail.Clone();
                 List<int> Deal = new List<int>();
                 decimal itemDiscount = 0;
@@ -1013,38 +1014,31 @@ namespace CORNBusinessLayer.Classes
                             ItemType = 1;
                         }
 
-                        try
+                        uspInsertSaleInvoiceItemLog mItemLesCancel = new uspInsertSaleInvoiceItemLog
                         {
-                            uspInsertSaleInvoiceItemLog mItemLesCancel = new uspInsertSaleInvoiceItemLog
+                            Connection = mConnection,
+                            Transaction = mTransaction,
+                            SALE_INVOICE_ID = pSaleInvoiceId,
+                            SALE_INVOICE_DETAIL_ID = SALEINVOICEDETAILD,
+                            SKU_ID = Convert.ToInt32(dr["SKU_ID"]),
+                            IS_VOID = Convert.ToBoolean(dr["VOID"]),
+                            QTY = Convert.ToDecimal(dr["QTY"]),
+                            VOID_BY = p_VOID_BY,
+                            LessCancelReasonID = intLessCancelReasonID,
+                            ItemType = ItemType,
+                            DealQty = Convert.ToDecimal(dr["DEAL_QTY"])
+                        };
+                        DataTable dtItemLog = mItemLesCancel.ExecuteTable();
+                        if (ItemType == 2)//Insert Consumption
+                        {
+                            dtItemLessCancel.ImportRow(dr);
+                            foreach (DataRow drLessCancel in dtItemLessCancel.Rows)
                             {
-                                Connection = mConnection,
-                                Transaction = mTransaction,
-                                SALE_INVOICE_ID = pSaleInvoiceId,
-                                SALE_INVOICE_DETAIL_ID = SALEINVOICEDETAILD,
-                                SKU_ID = Convert.ToInt32(dr["SKU_ID"]),
-                                IS_VOID = Convert.ToBoolean(dr["VOID"]),
-                                QTY = Convert.ToDecimal(dr["QTY"]),
-                                VOID_BY = p_VOID_BY,
-                                LessCancelReasonID = intLessCancelReasonID,
-                                ItemType = ItemType,
-                                DealQty = Convert.ToDecimal(dr["DEAL_QTY"])
-                            };
-                            DataTable dtItemLog = mItemLesCancel.ExecuteTable();
-                            if (ItemType == 2)//Insert Consumption
-                            {
-                                dtItemLessCancel.ImportRow(dr);
-                                foreach (DataRow drLessCancel in dtItemLessCancel.Rows)
+                                if (drLessCancel["SKU_ID"].ToString() == dr["SKU_ID"].ToString())
                                 {
-                                    if (drLessCancel["SKU_ID"].ToString() == dr["SKU_ID"].ToString())
-                                    {
-                                        drLessCancel["QTY"] = dtItemLog.Rows[0]["RETURN_QTY"];
-                                    }
+                                    drLessCancel["QTY"] = dtItemLog.Rows[0]["RETURN_QTY"];
                                 }
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            ExceptionPublisher.PublishExceptionforSync(ex, "uspInsertSaleInvoiceItemLog:SALE_INVOICE_ID=" + pSaleInvoiceId);
                         }
                     }
 
@@ -1366,15 +1360,76 @@ namespace CORNBusinessLayer.Classes
                         mISom2.SALE_INVOICE_ID = pSaleInvoiceId;
                         mISom2.ExecuteQuery();
                     }
-
-                    mTransaction.Commit();
+                    mTransaction.Commit();                    
                     return true;
                 }
             }
             catch (Exception exp)
             {
+                WriteLog("pSaleInvoiceId:" + pSaleInvoiceId.ToString());
+                WriteLog("pPaymentModeId:" + pPaymentModeId.ToString());
+                WriteLog("pCustomerTypeId:" + pCustomerTypeId.ToString());
+                WriteLog("pTableId:" + pTableId.ToString());
+                WriteLog("pAmountdue:" + pAmountdue.ToString());
+                WriteLog("pDiscount:" + pDiscount.ToString());
+                WriteLog("pGst:" + pGst.ToString());
+                WriteLog("pPaidin:" + pPaidin.ToString());
+                WriteLog("pBalance:" + pBalance.ToString());
+                WriteLog("pIsHold:" + pIsHold.ToString());
+                WriteLog("pUserId:" + pUserId.ToString());
+                WriteLog("pDocumentDate:" + pDocumentDate.ToString());
+                WriteLog("pDistributorId:" + pDistributorId.ToString());
+                WriteLog("pDiscType:" + pDiscType.ToString());
+                WriteLog("pOrderBookerId:" + pOrderBookerId.ToString());
+                WriteLog("pCovertTable:" + pCovertTable);
+                WriteLog("pTakeAwayCustomer:" + pTakeAwayCustomer);
+                WriteLog("p_VOID_BY:" + p_VOID_BY.ToString());
+                WriteLog("pMANUAL_ORDER_NO:" + pMANUAL_ORDER_NO);
+                WriteLog("pREMARKS:" + pREMARKS);
+                WriteLog("pserviceCharges:" + pserviceCharges);
+                WriteLog("pcustomerID:" + pcustomerID.ToString());
+                WriteLog("pInvoicePrinted:" + pInvoicePrinted.ToString());
+                WriteLog("pGSTPER:" + pGSTPER);
+                WriteLog("pGSTPERCreditCard:" + pGSTPERCreditCard.ToString());
+                WriteLog("pBillFormat:" + pBillFormat.ToString());
+                WriteLog("pAdvanceAmount:" + pAdvanceAmount.ToString());
+                WriteLog("pCustomerGST:" + pCustomerGST.ToString());
+                WriteLog("pCustomerDiscount:" + pCustomerDiscount.ToString());
+                WriteLog("pCustomerDiscountType:" + pCustomerDiscountType.ToString());
+                WriteLog("pCustomerServiceCharges:" + pCustomerServiceCharges.ToString());
+                WriteLog("pCustomerServiceType:" + pCustomerServiceType.ToString());
+                WriteLog("pRecipeType:" + pRecipeType.ToString());
+                WriteLog("pDelChannel:" + pDelChannel.ToString());
+                WriteLog("pDELIVERY_CHANNEL_CASH_IMPACT:" + pDELIVERY_CHANNEL_CASH_IMPACT.ToString());
+                WriteLog("pCreditCard_Impact:" + pCreditCard_Impact.ToString());
+                WriteLog("KDSImplemented:" + KDSImplemented.ToString());
+                WriteLog("pIsItemChanged:" + pIsItemChanged.ToString());
+                WriteLog("pTakeawayType:" + pTakeawayType.ToString());
+                WriteLog("OldInvoiceJson:" + OldInvoiceJson.ToString());
+                int rowNo = 1;
+                foreach (DataRow row in dtInvoiceDetail.Rows)
+                {
+                    foreach (DataColumn col in dtInvoiceDetail.Columns)
+                    {
+                        string value = row[col] == DBNull.Value ? "NULL" : row[col].ToString();
+                        WriteLog($"Row {rowNo} | {col.ColumnName}: {value}");
+                    }
+                    rowNo++;
+                }
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        string value = row[col] == DBNull.Value ? "NULL" : row[col].ToString();
+                        WriteLog($"Row {rowNo} | {col.ColumnName}: {value}");
+                    }
+                    rowNo++;
+                }
+
                 ExceptionPublisher.PublishException(exp);
                 mTransaction.Rollback();
+                WriteLog("mTransaction.Rollback()");
                 throw;
             }
             finally
@@ -5801,7 +5856,37 @@ namespace CORNBusinessLayer.Classes
                     mConnection.Close();
                 }
             }
-        }        
+        }
+
+        private static void WriteLog(string Msg)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            string logFile = path + "TestLog.txt";
+            for (int i = 0; i < 3; i++)
+            {
+                try
+                {
+                    using (FileStream fs = new FileStream(logFile, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                    using (StreamWriter sw = new StreamWriter(fs))
+                    {
+                        sw.WriteLine($"{DateTime.Now}: {Msg}");
+                        sw.Flush();
+                        fs.Flush(true);
+                    }
+                    break;
+                }
+                catch (IOException)
+                {
+                    System.Threading.Thread.Sleep(100);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Logging failed: " + ex.Message);
+                    break;
+                }
+            }
+
+        }
         #endregion
     }
 }
